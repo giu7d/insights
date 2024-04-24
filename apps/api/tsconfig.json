@@ -1,25 +1,12 @@
 {
+  "extends": "@splitter/tooling-typescript/base.json",
   "compilerOptions": {
-    "allowJs": true,
-    "baseUrl": "./src",
-    "composite": true,
-    "declaration": true,
-    "declarationMap": true,
-    "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "forceConsistentCasingInFileNames": true,
-    "module": "commonjs",
-    "outDir": "./build",
+    "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json",
+    "outDir": "build",
     "paths": {
-      "@/*": ["*"]
-    },
-    "rootDir": "./src",
-    "skipLibCheck": true,
-    "sourceMap": true,
-    "strict": true,
-    "strictNullChecks": true,
-    "strictPropertyInitialization": false,
-    "target": "es5"
+      "@/*": ["./src/*"]
+    }
   },
-  "exclude": ["coverage", ".turbo", "jest.config.js"]
+  "include": ["src"],
+  "exclude": ["node_modules"]
 }
