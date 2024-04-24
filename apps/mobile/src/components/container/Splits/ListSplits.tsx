@@ -1,7 +1,7 @@
 import { Dimensions, View } from 'react-native'
 
 import { FlashList } from '@shopify/flash-list'
-import { Bill } from 'splitter-api/src/entities/bill'
+import { Bill } from '@splitter/api/src/entities/bill'
 
 import Avatar from '@/components/fragments/Avatar'
 import Badge from '@/components/fragments/Badge'
