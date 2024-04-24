@@ -1,0 +1,8 @@
+{
+  "name": "@splitter/tooling-typescript",
+  "private": true,
+  "version": "1.0.0",
+  "files": [
+    "*.json"
+  ]
+}
