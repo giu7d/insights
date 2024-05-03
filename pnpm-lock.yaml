@@ -42,6 +42,9 @@ importers:
         specifier: ^3.23.4
         version: 3.23.4
     devDependencies:
+      '@splitter/package-validators':
+        specifier: workspace:*
+        version: link:../../packages/validators
       '@splitter/tooling-eslint':
         specifier: workspace:*
         version: link:../../tooling/eslint
@@ -244,6 +247,31 @@ importers:
       tailwindcss:
         specifier: ^3.2.4
         version: 3.2.4(postcss@8.4.24)(ts-node@10.9.2(@types/node@18.19.31)(typescript@5.4.5))
+      typescript:
+        specifier: ^5.4.5
+        version: 5.4.5
+
+  packages/validators:
+    dependencies:
+      zod:
+        specifier: ^3.23.4
+        version: 3.23.4
+    devDependencies:
+      '@splitter/tooling-eslint':
+        specifier: workspace:*
+        version: link:../../tooling/eslint
+      '@splitter/tooling-prettier':
+        specifier: workspace:*
+        version: link:../../tooling/prettier
+      '@splitter/tooling-typescript':
+        specifier: workspace:*
+        version: link:../../tooling/typescript
+      eslint:
+        specifier: ^9.0.0
+        version: 9.1.1
+      prettier:
+        specifier: ^3.2.5
+        version: 3.2.5
       typescript:
         specifier: ^5.4.5
         version: 5.4.5
@@ -7800,10 +7828,6 @@ packages:
   wonka@4.0.15:
     resolution: {integrity: sha512-U0IUQHKXXn6PFo9nqsHphVCE5m3IntqZNB9Jjn7EB1lrR7YTDY3YWgFvEvwniTzXSvOH/XMzAZaIfJF/LvHYXg==}
 
-  word-wrap@1.2.3:
-    resolution: {integrity: sha512-Hz/mrNwitNRh/HUAtM/VT/5VH+ygD6DV7mYKZAtHOrbs8U7lvPS6xf7EJKMF0uW1KJCl0H701g3ZGus+muE5vQ==}
-    engines: {node: '>=0.10.0'}
-
   word-wrap@1.2.5:
     resolution: {integrity: sha512-BN22B5eaMMI9UMtjrGd5g5eCYPpCPDUy0FJXbYsaT5zYxjFOckS53SQDE3pWkVoWpHXVb3BrYcEN4Twa55B5cA==}
     engines: {node: '>=0.10.0'}
@@ -9414,7 +9438,7 @@ snapshots:
       debug: 4.3.4
       espree: 10.0.1
       globals: 14.0.0
-      ignore: 5.2.4
+      ignore: 5.3.1
       import-fresh: 3.3.0
       js-yaml: 4.1.0
       minimatch: 3.1.2
@@ -12898,7 +12922,7 @@ snapshots:
       file-entry-cache: 8.0.0
       find-up: 5.0.0
       glob-parent: 6.0.2
-      ignore: 5.2.4
+      ignore: 5.3.1
       imurmurhash: 0.1.4
       is-glob: 4.0.3
       is-path-inside: 3.0.3
@@ -15673,7 +15697,7 @@ snapshots:
       levn: 0.3.0
       prelude-ls: 1.1.2
       type-check: 0.3.2
-      word-wrap: 1.2.3
+      word-wrap: 1.2.5
 
   optionator@0.9.4:
     dependencies:
@@ -17911,8 +17935,6 @@ snapshots:
       isexe: 2.0.0
 
   wonka@4.0.15: {}
-
-  word-wrap@1.2.3: {}
 
   word-wrap@1.2.5: {}
 
