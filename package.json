@@ -25,44 +25,5 @@
     "turbo": "^1.13.3",
     "typescript": "^5.4.5"
   },
-  "pnpm": {
-    "peerDependencyRules": {
-      "ignoreMissing": [
-        "@babel/*",
-        "expo-modules-*",
-        "typescript",
-        "**/@babel/**/*",
-        "**/@expo",
-        "**/@expo/**",
-        "**/@react-native-*",
-        "**/@react-native-*/**",
-        "**/@tanstack*",
-        "**/@tanstack*/**",
-        "**/@tanstack/**/*",
-        "**/@trpc",
-        "**/@trpc/**/*",
-        "**/*react-navigation/**",
-        "**/babel-plugin-*",
-        "**/babel-plugin-*/**",
-        "**/expo-*",
-        "**/expo-*/**",
-        "**/expo",
-        "**/expo/**",
-        "**/jest",
-        "**/jest/**",
-        "**/jest-*",
-        "**/jest-*/**",
-        "**/metro-*",
-        "**/metro-*/**",
-        "**/nativewind",
-        "**/react-native-*",
-        "**/react-native-*/**",
-        "**/react-native",
-        "**/react-native/**",
-        "**/react-query",
-        "**/tailwindcss"
-      ]
-    }
-  },
   "prettier": "@splitter/tooling-prettier"
 }

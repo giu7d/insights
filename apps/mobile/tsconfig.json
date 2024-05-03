@@ -1,17 +1,27 @@
 {
-  "extends": "expo/tsconfig.base",
+  "extends": [
+    "@splitter/tooling-typescript/base.json"
+  ],
   "compilerOptions": {
-    "allowJs": true,
-    "esModuleInterop": true,
-    "strict": true,
-    "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
-      "@assets/*": ["./assets/*"],
-      "@config/*": ["./config/*"]
-    }
+      "@/*": [
+        "./src/*"
+      ]
+    },
+    "jsx": "react-native",
+    "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json",
+    "types": [
+      "nativewind/types"
+    ],
+    "checkJs": false
   },
-  "references": [{ "path": "../api" }],
-  "exclude": ["coverage", ".turbo"]
+  "include": [
+    "src",
+    "*.ts",
+    "*.js"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

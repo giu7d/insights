@@ -15,11 +15,11 @@ module.exports = {
     splash: {
       image: './assets/splash.png',
       resizeMode: 'contain',
-      backgroundColor: '#FFFFFF'
+      backgroundColor: '#FFFFFF',
     },
     updates: {
       fallbackToCacheTimeout: 0,
-      url: 'https://u.expo.dev/916828f4-940a-42fa-a42d-a662c47baf27'
+      url: 'https://u.expo.dev/916828f4-940a-42fa-a42d-a662c47baf27',
     },
     plugins: [
       [
@@ -27,51 +27,44 @@ module.exports = {
         {
           ios: {
             flipper: true,
-            newArchEnabled: false
+            newArchEnabled: false,
           },
           android: {
             newArchEnabled: false,
             usesCleartextTraffic: true,
-            kotlinVersion: '1.8.10'
-          }
-        }
+            kotlinVersion: '1.8.10',
+          },
+        },
       ],
       '@config-plugins/detox',
       [
         'expo-updates',
         {
-          username: 'giu7d'
-        }
+          username: 'giu7d',
+        },
       ],
       'expo-router',
-      [
-        'react-native-widget-extension',
-        {
-          frequentUpdates: true,
-          widgetsFolder: './widgets/SplitWidget'
-        }
-      ]
     ],
     ios: {
       supportsTablet: true,
-      bundleIdentifier: 'com.prisma.splitter'
+      bundleIdentifier: 'com.prisma.splitter',
     },
     android: {
       adaptiveIcon: {
         foregroundImage: './assets/adaptive-icon.png',
-        backgroundColor: '#FFFFFF'
+        backgroundColor: '#FFFFFF',
       },
-      package: 'com.prisma.splitter'
+      package: 'com.prisma.splitter',
     },
     web: {
       favicon: './assets/favicon.png',
-      bundler: 'metro'
+      bundler: 'metro',
     },
     extra: {
       ...process.env,
       eas: {
-        projectId: '916828f4-940a-42fa-a42d-a662c47baf27'
-      }
-    }
-  }
+        projectId: '916828f4-940a-42fa-a42d-a662c47baf27',
+      },
+    },
+  },
 }
