@@ -51,3 +51,6 @@ dist/
 
 # turbo
 .turbo
+
+# always track tool version
+!.tool-versions
