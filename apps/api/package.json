@@ -8,7 +8,7 @@
     "start": "node build/index.js",
     "dev": "run-p dev:*",
     "dev:tsc": "tsc --watch --preserveWatchOutput",
-    "dev:node": "node --watch build/index.js",
+    "dev:node": "wait-on build/index.js && node --watch build/index.js",
     "dev:esbuild": "pnpm run build --watch",
     "build": "node esbuild.config.mjs",
     "test": "jest",
@@ -39,7 +39,8 @@
     "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
     "tsconfig-paths": "^4.2.0",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "wait-on": "^7.2.0"
   },
   "prettier": "@splitter/tooling-prettier"
 }
