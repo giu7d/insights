@@ -5,7 +5,7 @@ import usersRoutes from './users'
 
 const routes = withRouter({
   users: usersRoutes,
-  bills: billsRoutes
+  bills: billsRoutes,
 })
 
 export type Routes = typeof routes

@@ -1,4 +1,4 @@
-import { User } from '@/entities/user'
+import type { User } from '@/entities/user'
 
 export default class FindUser {
   async call(userId: string): Promise<User> {
@@ -11,9 +11,9 @@ export default class FindUser {
         username: 'giu.setem',
         cashback: {
           total: '20.00',
-          currency: 'BRL'
-        }
-      })
+          currency: 'BRL',
+        },
+      }),
     )
   }
 }

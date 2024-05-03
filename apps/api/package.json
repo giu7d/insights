@@ -11,13 +11,13 @@
     "dev:node": "node --watch build/index.js",
     "dev:esbuild": "pnpm run build --watch",
     "build": "node esbuild.config.mjs",
-    "clean": "rm -rf .turbo node_modules",
+    "test": "jest",
+    "test:watch": "jest --watch",
     "lint": "run-s lint:*",
     "lint:ts": "tsc",
     "lint:eslint": "eslint",
-    "format": "prettier --check . --ignore-path ../../.gitignore",
-    "test": "jest",
-    "test:watch": "jest --watch"
+    "lint:prettier": "prettier --check . --ignore-path ../../.gitignore",
+    "clean": "git clean -xdf node_modules .turbo build"
   },
   "dependencies": {
     "@fastify/cors": "^8.5.0",
@@ -26,6 +26,7 @@
     "zod": "^3.23.4"
   },
   "devDependencies": {
+    "@splitter/tooling-eslint": "workspace:*",
     "@splitter/tooling-prettier": "workspace:*",
     "@splitter/tooling-typescript": "workspace:*",
     "@types/jest": "^29.5.12",

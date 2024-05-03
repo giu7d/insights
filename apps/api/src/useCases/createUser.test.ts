@@ -5,7 +5,7 @@ describe('Create User', () => {
     const request = {
       firstName: 'name',
       lastName: 'surname',
-      username: 'name.surname'
+      username: 'name.surname',
     }
 
     const createUser = new CreateUser()

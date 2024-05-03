@@ -8,5 +8,5 @@ export default esbuild.build({
   sourcemap: true,
   platform: 'node',
   format: 'esm',
-  external: ['fastify']
+  external: ['fastify'],
 })

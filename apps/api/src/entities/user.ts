@@ -1,8 +1,8 @@
+import type { Cashback } from './cashback'
+
 import { z } from 'zod'
 
-import { Cashback } from './cashback'
-
-export type User = {
+export interface User {
   id: string
   photo?: string
   firstName: string
@@ -11,12 +11,10 @@ export type User = {
   cashback: Cashback
 }
 
-export const useValidUser: () => z.ZodType<
-  Omit<User, 'id' | 'cashback'>
-> = () =>
+export const useValidUser: () => z.ZodType<Omit<User, 'id' | 'cashback'>> = () =>
   z.object({
     photo: z.string().optional(),
     firstName: z.string(),
     lastName: z.string(),
-    username: z.string()
+    username: z.string(),
   })

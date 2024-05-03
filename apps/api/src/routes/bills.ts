@@ -13,7 +13,7 @@ const billsRoutes = withRouter({
   list: withProcedure().query(async () => await listBills.call()),
   find: withProcedure()
     .input(findBillParams)
-    .query(async ({ input }) => await findBill.call(input.id))
+    .query(async ({ input }) => await findBill.call(input.id)),
 })
 
 export default billsRoutes

@@ -1,4 +1,4 @@
-import { Bill } from '@/entities/bill'
+import type { Bill } from '@/entities/bill'
 
 export default class ListBills {
   async call(): Promise<Bill[]> {
@@ -12,7 +12,7 @@ export default class ListBills {
           participants: [],
           currency: 'BRL',
           splitValue: '60.00',
-          totalValue: '240.00'
+          totalValue: '240.00',
         },
         {
           id: '1',
@@ -22,7 +22,7 @@ export default class ListBills {
           participants: [],
           currency: 'BRL',
           splitValue: '1401.00',
-          totalValue: '2802.00'
+          totalValue: '2802.00',
         },
         {
           id: '2',
@@ -32,7 +32,7 @@ export default class ListBills {
           participants: [],
           currency: 'BRL',
           splitValue: '10.00',
-          totalValue: '200.00'
+          totalValue: '200.00',
         },
         {
           id: '3',
@@ -42,9 +42,9 @@ export default class ListBills {
           participants: [],
           currency: 'BRL',
           splitValue: '100.00',
-          totalValue: '200.00'
-        }
-      ])
+          totalValue: '200.00',
+        },
+      ]),
     )
   }
 }

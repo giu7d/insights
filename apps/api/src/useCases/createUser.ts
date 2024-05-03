@@ -1,4 +1,4 @@
-import { User } from '@/entities/user'
+import type { User } from '@/entities/user'
 
 export default class CreateUser {
   async call(data: Omit<User, 'id' | 'cashback'>): Promise<User> {
@@ -7,10 +7,10 @@ export default class CreateUser {
         id: new Date().getTime().toString(),
         cashback: {
           currency: 'BRL',
-          total: '0'
+          total: '0',
         },
-        ...data
-      })
+        ...data,
+      }),
     )
   }
 }

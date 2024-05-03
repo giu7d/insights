@@ -1,6 +1,6 @@
-import { User } from './user'
+import type { User } from './user'
 
-export type Bill = {
+export interface Bill {
   id: string
   icon: string
   name: string

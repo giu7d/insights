@@ -16,7 +16,7 @@ const usersRoutes = withRouter({
     .query(async ({ input }) => await findUser.call(input.id)),
   create: withProcedure()
     .input(useValidUser())
-    .mutation(async ({ input }) => await createUser.call(input))
+    .mutation(async ({ input }) => await createUser.call(input)),
 })
 
 export default usersRoutes
