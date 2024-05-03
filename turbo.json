@@ -1,11 +1,10 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "remoteCache": {
-    "signature": true
-  },
+  "experimentalUI": true,
+  "globalDependencies": ["**/.env"],
   "pipeline": {
     "lint": {
-      "outputs": []
+      "outputs": ["node_modules/.cache/.lint-stage-cache"]
     },
     "test": {
       "dependsOn": ["build"],
@@ -13,11 +12,21 @@
     },
     "build": {
       "dependsOn": ["^build"],
-      "outputs": [".next/**", "build/**", "node_modules/.cache/metro/**"]
+      "outputs": [
+        ".next/**",
+        "!.next/cache/**",
+        "next-env.d.ts",
+        ".expo/**",
+        ".output/**",
+        ".vercel/output/**"
+      ]
     },
     "dev": {
       "cache": false,
       "persistent": true
+    },
+    "clean": {
+      "cache": false
     }
   }
 }

@@ -2,36 +2,24 @@
   "name": "splitter",
   "version": "1.0.0",
   "private": true,
+  "packageManager": "pnpm@9.0.4",
   "scripts": {
-    "dev": "dotenv -- turbo dev --parallel",
-    "dev:mobile": "dotenv -- turbo dev --filter=\"{./apps/mobile}...\"",
-    "dev:api": "dotenv -- turbo dev --filter=\"{./apps/api}...\"",
+    "dev": "turbo dev --parallel",
     "build": "turbo build",
-    "build:mobile": "turbo build --filter=\"...{./apps/mobile}\"",
-    "build:api": "turbo build --filter=\"...{./apps/api}\"",
     "test": "turbo test",
-    "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "clean": "rm -rf .turbo node_modules"
-  },
-  "dependencies": {
-    "dotenv-cli": "^6.0.0"
+    "lint": "run-s lint:*",
+    "lint:workspace": "turbo lint",
+    "lint:workspace:dependencies": "pnpm dlx sherif@latest",
+    "clean": "run-s clean:*",
+    "clean:main": "git clean -xdf node_modules",
+    "clean:workspace": "turbo clean"
   },
   "devDependencies": {
     "@splitter/tooling-prettier": "workspace:*",
-    "@typescript-eslint/eslint-plugin": "^5.0.0",
-    "eslint": "^8.0.1",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-config-standard-with-typescript": "^23.0.0",
-    "eslint-config-turbo": "latest",
-    "eslint-plugin-import": "^2.25.2",
-    "eslint-plugin-n": "^15.5.1",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-promise": "^6.0.0",
-    "eslint-plugin-react": "^7.31.11",
-    "eslint-plugin-unused-imports": "^2.0.0",
+    "dotenv-cli": "^6.0.0",
+    "npm-run-all": "^4.1.5",
     "prettier": "^3.2.5",
-    "turbo": "latest",
+    "turbo": "^1.13.3",
     "typescript": "^5.4.5"
   },
   "pnpm": {
@@ -72,10 +60,6 @@
         "**/tailwindcss"
       ]
     }
-  },
-  "engines": {
-    "node": ">=18.15.0",
-    "pnpm": ">=8.1.0"
   },
   "prettier": "@splitter/tooling-prettier"
 }

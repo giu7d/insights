@@ -1,9 +1,5 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# Visual Studio Code
-.vscode
-.expo
-
 # dependencies
 node_modules
 .pnp
@@ -16,6 +12,20 @@ coverage
 # next.js
 .next/
 out/
+next-env.d.ts
+
+# nitro
+.nitro/
+.output/
+
+# expo
+.expo/
+expo-env.d.ts
+apps/expo/.gitignore
+apps/expo/ios
+apps/expo/android
+
+# production
 build
 
 # misc
@@ -30,10 +40,14 @@ yarn-error.log*
 
 # local env files
 .env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+.env*.local
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+dist/
 
 # turbo
 .turbo
