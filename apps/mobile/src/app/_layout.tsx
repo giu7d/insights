@@ -1,5 +1,5 @@
+import '../styles.css'
 import { Stack } from 'expo-router'
-
 import Provider from '@/providers'
 
 export { ErrorBoundary } from 'expo-router'
@@ -9,7 +9,7 @@ export default function AppLayout() {
     <Provider>
       <Stack
         screenOptions={{
-          header: () => null
+          header: () => null,
         }}
       >
         {/* Setup Stack as Modal */}
@@ -17,7 +17,7 @@ export default function AppLayout() {
           name="bills/create"
           options={{
             presentation: 'modal',
-            gestureEnabled: true
+            gestureEnabled: true,
           }}
         />
       </Stack>

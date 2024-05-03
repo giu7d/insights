@@ -1,9 +1,7 @@
-import { server } from '@config/setupMSW'
+import { server } from './setupMSW'
 import SetupJestFetch from 'jest-fetch-mock'
 
 jest.setTimeout(30000)
-
-jest.mock('react-native-hold-menu')
 
 SetupJestFetch.enableMocks()
 
@@ -14,13 +12,7 @@ global.window = {}
 global.window = global
 
 beforeAll(() => {
-  // @ts-expect-error
-  global.ReanimatedDataMock = {
-    now: jest.fn()
-  }
-
   jest.spyOn(console, 'error').mockImplementation(() => {})
-
   server.listen()
 })
 

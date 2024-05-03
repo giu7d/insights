@@ -1,25 +1,11 @@
-// eslint-disable-next-line n/no-path-concat
-// process.env.EXPO_ROUTER_APP_ROOT = __dirname + '/src/app'
-
-module.exports = function (api) {
+/** @type {import("@babel/core").ConfigFunction} */
+module.exports = (api) => {
   api.cache(true)
   return {
-    presets: ['babel-preset-expo'],
-    plugins: [
+    presets: [
+      ['babel-preset-expo', { jsxImportSource: 'nativewind' }],
       'nativewind/babel',
-      '@babel/plugin-proposal-export-namespace-from',
-      'react-native-reanimated/plugin',
-      [
-        'module-resolver',
-        {
-          alias: {
-            '@': './src',
-            '@assets': './assets',
-            '@config': './config'
-          }
-        }
-      ],
-      'expo-router/babel'
-    ]
+    ],
+    plugins: ['react-native-reanimated/plugin'],
   }
 }

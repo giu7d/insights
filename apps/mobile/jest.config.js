@@ -2,17 +2,17 @@
 module.exports = {
   preset: 'jest-expo',
   transformIgnorePatterns: [
-    'node_modules/(?!((jest-)?react-native|@react-native(-community)?)|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|react-native-svg)'
+    'node_modules/(?!((jest-)?react-native|@react-native(-community)?)|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|react-native-svg)',
   ],
   collectCoverage: true,
   collectCoverageFrom: [
     'src/**/*.{js,jsx,ts,tsx}',
-    '!**/*.test.{js,jsx,ts,tsx}'
+    '!**/*.test.{js,jsx,ts,tsx}',
   ],
   setupFilesAfterEnv: ['<rootDir>/config/setupJest.ts'],
   roots: ['<rootDir>/src'],
   moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>/src/$1'
+    '^@/(.*)$': '<rootDir>/src/$1',
   },
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json']
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
 }

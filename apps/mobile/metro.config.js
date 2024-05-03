@@ -1,30 +1,5 @@
-/** @type {import('expo/metro-config').MetroConfig} */
+require('ts-node/register')
 
-const path = require('path')
+const { setupMetro } = require('./config/setupMetro')
 
-const { getDefaultConfig } = require('expo/metro-config')
-
-const projectRoot = __dirname
-
-const config = getDefaultConfig(projectRoot, {
-  // Enable CSS support.
-  isCSSEnabled: true
-})
-
-//
-// Handle monorepo
-//
-const workspaceRoot = path.resolve(projectRoot, '../..')
-
-config.watchFolders = [workspaceRoot]
-
-config.resolver.nodeModulesPaths = [
-  path.resolve(projectRoot, 'node_modules'),
-  path.resolve(workspaceRoot, 'node_modules')
-]
-
-config.resolver.sourceExts = ['jsx', 'js', 'ts', 'tsx', 'cjs', 'mjs', 'json']
-
-config.resolver.disableHierarchicalLookup = true
-
-module.exports = config
+module.exports = setupMetro()
