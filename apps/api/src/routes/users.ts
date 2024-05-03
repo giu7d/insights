@@ -1,4 +1,4 @@
-import { z } from 'zod'
+import { FindUserSchema } from '@splitter/package-validators'
 
 import { withProcedure, withRouter } from '@/config/trpc'
 import { useValidUser } from '@/entities/user'
@@ -8,11 +8,9 @@ import FindUser from '@/useCases/findUser'
 const findUser = new FindUser()
 const createUser = new CreateUser()
 
-const findUserParams = z.object({ id: z.string() })
-
 const usersRoutes = withRouter({
   find: withProcedure()
-    .input(findUserParams)
+    .input(FindUserSchema)
     .query(async ({ input }) => await findUser.call(input.id)),
   create: withProcedure()
     .input(useValidUser())

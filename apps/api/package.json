@@ -26,6 +26,7 @@
     "zod": "^3.23.4"
   },
   "devDependencies": {
+    "@splitter/package-validators": "workspace:*",
     "@splitter/tooling-eslint": "workspace:*",
     "@splitter/tooling-prettier": "workspace:*",
     "@splitter/tooling-typescript": "workspace:*",
