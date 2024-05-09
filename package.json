@@ -10,6 +10,8 @@
     "dev": "turbo dev --parallel",
     "build": "turbo build",
     "test": "turbo test",
+    "db:push": "pnpm -F package-db db:push",
+    "db:studio": "pnpm -F package-db db:studio",
     "lint": "run-s lint:*",
     "lint:workspace": "turbo lint",
     "lint:workspace:dependencies": "pnpm dlx sherif@latest",
