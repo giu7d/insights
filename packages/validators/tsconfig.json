@@ -2,8 +2,12 @@
   "extends": "@splitter/tooling-typescript/internal-package.json",
   "compilerOptions": {
     "outDir": "dist",
-    "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json"
+    "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
-  "include": ["*.ts", "lib"],
+  "include": ["*.ts", "src"],
   "exclude": ["node_modules"]
 }

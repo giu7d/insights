@@ -1,13 +1,13 @@
 {
-  "extends": "@splitter/tooling-typescript/base.json",
+  "extends": "@splitter/tooling-typescript/internal-package.json",
   "compilerOptions": {
-    "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json",
     "outDir": "build",
+    "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json",
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src"],
+  "include": ["*.ts", "src"],
   "exclude": ["node_modules"]
 }

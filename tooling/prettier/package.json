@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "type": "module",
   "exports": {
-    ".": "./lib/index.js"
+    ".": "./src/index.js"
   },
   "scripts": {
     "clean": "git clean -xdf node_modules .turbo",

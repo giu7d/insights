@@ -4,8 +4,8 @@
   "version": "1.0.0",
   "type": "module",
   "exports": {
-    "./base": "./lib/base.js",
-    "./react": "./lib/react.js"
+    "./base": "./src/base.js",
+    "./react": "./src/react.js"
   },
   "scripts": {
     "clean": "git clean -xdf node_modules .turbo",
