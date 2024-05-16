@@ -12,8 +12,8 @@
   },
   "scripts": {
     "dev": "tsc --watch",
-    "clean": "git clean -xdf node_modules .turbo",
     "build": "tsc",
+    "clean": "git clean -xdf node_modules .turbo",
     "lint": "run-s lint:*",
     "lint:eslint": "eslint",
     "lint:ts": "tsc --noEmit --emitDeclarationOnly false",
