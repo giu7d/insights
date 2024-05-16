@@ -49,10 +49,8 @@ export default tseslint.config(
     ],
     rules: {
       // Typescript Eslint
-      '@typescript-eslint/no-unused-vars': [
-        'error',
-        { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
-      ],
+      'no-unused-vars': 'error',
+      '@typescript-eslint/no-unused-vars': 'error',
       '@typescript-eslint/consistent-type-imports': [
         'warn',
         { prefer: 'type-imports', fixStyle: 'separate-type-imports' },
@@ -68,6 +66,7 @@ export default tseslint.config(
         },
       ],
       '@typescript-eslint/no-non-null-assertion': 'error',
+      '@typescript-eslint/no-unnecessary-condition': 'off',
       // Group & Sort Imports
       'import/order': [
         'error',
@@ -91,6 +90,10 @@ export default tseslint.config(
             {
               pattern: 'expo',
               group: 'builtin',
+            },
+            {
+              pattern: '@splitter/**',
+              group: 'internal',
             },
             {
               pattern: '@/**',
