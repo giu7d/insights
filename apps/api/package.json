@@ -1,14 +1,14 @@
 {
   "name": "@splitter/api",
   "version": "1.0.0",
-  "main": "build/index.js",
+  "main": "build/index.mjs",
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "node build/index.js",
+    "start": "node build/index.mjs",
     "dev": "pnpm with-env run-p dev:*",
     "dev:tsc": "tsc --watch --preserveWatchOutput",
-    "dev:node": "wait-on build/index.js && node --watch build/index.js",
+    "dev:node": "wait-on build/index.mjs && node --watch build/index.mjs",
     "dev:esbuild": "pnpm run build --watch",
     "build": "pnpm with-env node esbuild.config.mjs",
     "test": "jest",
