@@ -6,21 +6,27 @@
   "type": "module",
   "scripts": {
     "start": "node build/index.js",
-    "dev": "run-p dev:*",
+    "dev": "pnpm with-env run-p dev:*",
     "dev:tsc": "tsc --watch --preserveWatchOutput",
     "dev:node": "wait-on build/index.js && node --watch build/index.js",
     "dev:esbuild": "pnpm run build --watch",
-    "build": "node esbuild.config.mjs",
+    "build": "pnpm with-env node esbuild.config.mjs",
     "test": "jest",
     "test:watch": "jest --watch",
     "lint": "run-s lint:*",
     "lint:ts": "tsc",
     "lint:eslint": "eslint",
     "lint:prettier": "prettier --check . --ignore-path ../../.gitignore",
-    "clean": "git clean -xdf node_modules .turbo build"
+    "clean": "git clean -xdf node_modules .turbo build",
+    "with-env": "dotenv -e ../../.env --"
   },
   "dependencies": {
     "@fastify/cors": "^8.5.0",
+    "@fastify/formbody": "^7.4.0",
+    "@splitter/package-auth": "workspace:*",
+    "@splitter/package-db": "workspace:*",
+    "@splitter/package-validators": "workspace:*",
+    "@t3-oss/env-nextjs": "^0.10.1",
     "@trpc/server": "^10.45.2",
     "fastify": "^4.26.2",
     "zod": "^3.23.4"
