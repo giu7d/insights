@@ -1,4 +1,5 @@
 import supertokens from 'supertokens-node/index.js'
+import Dashboard from 'supertokens-node/recipe/dashboard/index.js'
 import Passwordless from 'supertokens-node/recipe/passwordless/index.js'
 import Session from 'supertokens-node/recipe/session/index.js'
 
@@ -8,11 +9,14 @@ supertokens.init({
   framework: 'fastify',
   supertokens: {
     connectionURI: env.SUPERTOKENS_CORE_URI,
+    // apiKey: env.SUPERTOKENS_API_KEY TODO: Enable api key
   },
   appInfo: {
     appName: 'splitter',
     apiDomain: env.SUPERTOKENS_API_DOMAIN_URI,
     websiteDomain: env.SUPERTOKENS_WEB_DOMAIN_URI,
+    apiBasePath: '/auth',
+    websiteBasePath: '/auth',
   },
   recipeList: [
     Passwordless.init({
@@ -20,6 +24,7 @@ supertokens.init({
       contactMethod: 'EMAIL',
     }),
     Session.init(),
+    Dashboard.init(),
   ],
 })
 
