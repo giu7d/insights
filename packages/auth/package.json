@@ -8,7 +8,8 @@
     ".": {
       "default": "./src/index.ts"
     },
-    "./env": "./src/env.ts"
+    "./env": "./src/env.ts",
+    "./package.json": "./package.json"
   },
   "scripts": {
     "clean": "git clean -xdf node_modules .turbo",
