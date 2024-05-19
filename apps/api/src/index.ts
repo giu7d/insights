@@ -5,7 +5,7 @@ import endpoint from '@/web/endpoint'
 endpoint
   .listen({ host: env.API_HOST, port: env.API_PORT })
   .then(() => {
-    // console.clear()
+    console.clear()
     log.logServerStart()
   })
   .catch((error: string) => log.logServerError(error))

@@ -1,5 +1,6 @@
 import type { FastifyReply, FastifyRequest } from 'fastify'
 
+import compressPlugin from '@fastify/compress'
 import corsPlugin from '@fastify/cors'
 import formDataPlugin from '@fastify/formbody'
 import { fastifyTRPCPlugin } from '@trpc/server/adapters/fastify'
@@ -20,6 +21,11 @@ void app.register(corsPlugin, {
   origin: '*',
   allowedHeaders: ['Content-Type', ...authCorsHeaders],
   credentials: true,
+})
+
+void app.register(compressPlugin, {
+  global: true,
+  threshold: 1024,
 })
 
 void app.register(formDataPlugin)
