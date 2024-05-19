@@ -6,6 +6,7 @@ import authEnv from '@splitter/package-auth/env'
 export default createEnv({
   extends: [authEnv],
   server: {
+    ENV: z.union([z.literal('development'), z.literal('production')]),
     API_HOST: z.string(),
     API_PORT: z.number(),
     DB_HOST: z.string(),

@@ -1,10 +1,11 @@
 import endpoint from '@/endpoint'
 import env from '@/env'
-
-const host = env.API_HOST
-const port = env.API_PORT
+import log from '@/utils/log'
 
 endpoint
-  .listen({ host, port })
-  .then(() => console.log(host, port))
-  .catch((error) => console.error(error))
+  .listen({ host: env.API_HOST, port: env.API_PORT })
+  .then(() => {
+    console.clear()
+    log.logServerStart()
+  })
+  .catch((error: string) => log.logServerError(error))
