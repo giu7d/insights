@@ -5,13 +5,14 @@ import formDataPlugin from '@fastify/formbody'
 import { fastifyTRPCPlugin } from '@trpc/server/adapters/fastify'
 import fastify from 'fastify'
 
-import { router } from '@/router'
-import { createTRPCContext } from '@/trpc'
 import {
   authCorsHeaders,
   authErrorHandler,
   authPlugin,
 } from '@splitter/package-auth'
+
+import { router } from '@/web/router'
+import { createContext } from '@/web/trpc'
 
 const app = fastify({ logger: true })
 
@@ -27,7 +28,7 @@ void app.register(authPlugin)
 
 void app.register(fastifyTRPCPlugin, {
   prefix: '/trpc',
-  trpcOptions: { router, createContext: createTRPCContext },
+  trpcOptions: { router, createContext },
 })
 
 void app.get('/health', async (_req: FastifyRequest, res: FastifyReply) => {

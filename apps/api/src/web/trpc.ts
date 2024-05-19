@@ -6,17 +6,9 @@ import { ZodError } from 'zod'
 
 import { authSession } from '@splitter/package-auth'
 
-export const createTRPCContext = ({
-  req,
-  res,
-}: CreateFastifyContextOptions) => {
-  return {
-    req,
-    res,
-  }
-}
+export const createContext = (ctx: CreateFastifyContextOptions) => ctx
 
-const t = initTRPC.context<typeof createTRPCContext>().create({
+const t = initTRPC.context<typeof createContext>().create({
   transformer: superjson,
   errorFormatter: ({ shape, error }) => ({
     ...shape,
@@ -27,9 +19,7 @@ const t = initTRPC.context<typeof createTRPCContext>().create({
   }),
 })
 
-export const createCallerFactory = t.createCallerFactory
-
-export const createTRPCRouter = t.router
+export const createRouter = t.router
 
 export const usePublicProcedure = t.procedure
 

@@ -1,7 +1,23 @@
 import esbuild from 'esbuild'
-import authPkg from '../../packages/auth/package.json' assert { type: 'json' }
-import dbPkg from '../../packages/db/package.json' assert { type: 'json' }
-import pkg from './package.json' assert { type: 'json' }
+
+import authPackage from '@splitter/package-auth/package.json' assert { type: 'json' }
+import dbPackage from '@splitter/package-db/package.json' assert { type: 'json' }
+import validatorsPackage from '@splitter/package-validators/package.json' assert { type: 'json' }
+
+import apiPackage from './package.json' assert { type: 'json' }
+
+function getDependencies(pkg) {
+  return [
+    ...Object.keys(pkg.dependencies ?? {}),
+    ...Object.keys(pkg.peerDependencies ?? {}),
+  ]
+}
+
+function getExternalDependencies(packages = []) {
+  return packages
+    .flatMap((pkg) => getDependencies(pkg))
+    .filter((dep) => !dep.startsWith('@splitter'))
+}
 
 export default esbuild.build({
   logLevel: 'info',
@@ -9,18 +25,13 @@ export default esbuild.build({
   outfile: 'build/index.mjs',
   bundle: true,
   sourcemap: true,
+  minify: true,
   platform: 'node',
   format: 'esm',
-  external: [
-    ...Object.keys(authPkg.dependencies ?? {}),
-    ...Object.keys(authPkg.peerDependencies ?? {}),
-    ...Object.keys(dbPkg.dependencies ?? {}),
-    ...Object.keys(dbPkg.peerDependencies ?? {}),
-    ...Object.keys(pkg.dependencies ?? {}).filter(
-      (dep) => !dep.startsWith('@splitter'),
-    ),
-    ...Object.keys(pkg.peerDependencies ?? {}).filter(
-      (dep) => !dep.startsWith('@splitter'),
-    ),
-  ],
+  external: getExternalDependencies([
+    authPackage,
+    dbPackage,
+    validatorsPackage,
+    apiPackage,
+  ]),
 })

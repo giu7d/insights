@@ -7,9 +7,8 @@ const config = {
     '^@/(.*)$': '<rootDir>/src/$1',
   },
   moduleFileExtensions: ['ts', 'js', 'json'],
-  collectCoverage: true,
+  setupFilesAfterEnv: ['<rootDir>/config/setupJest.ts'],
   collectCoverageFrom: ['src/**/*.{js,ts}', '!**/*.test.{js,ts}'],
-  setupFilesAfterEnv: ['<rootDir>/src/config/setupTests.ts'],
 }
 
 export default config
