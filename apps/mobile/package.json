@@ -1,14 +1,16 @@
 {
-  "name": "mobile",
+  "name": "splitter",
   "main": "expo-router/entry",
   "version": "1.0.0",
   "scripts": {
-    "start": "expo start",
+    "dev": "expo start",
+    "reset-project": "node ./scripts/reset-project.js",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
     "test": "jest --watchAll",
-    "lint": "expo lint"
+    "lint": "expo lint",
+    "clean": "git clean -xdf node_modules .turbo build"
   },
   "jest": {
     "preset": "jest-expo"
