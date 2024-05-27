@@ -10,7 +10,7 @@ import {
   authCorsHeaders,
   authErrorHandler,
   authPlugin,
-} from '@splitter/package-auth'
+} from '@insights/package-auth'
 
 import router from '@/web/router'
 import { createContext } from '@/web/trpc'

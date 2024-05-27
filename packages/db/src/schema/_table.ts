@@ -6,4 +6,4 @@ import { pgTableCreator } from 'drizzle-orm/pg-core'
  *
  * @see https://orm.drizzle.team/docs/goodies#multi-project-schema
  */
-export const createTable = pgTableCreator((name) => `splitter_${name}`)
+export const createTable = pgTableCreator((name) => `insights_${name}`)

@@ -7,13 +7,13 @@ function isProductionEnv() {
 }
 
 function getName() {
-  if (isProductionEnv()) return 'Splitter'
-  return `Splitter (${ENV})`
+  if (isProductionEnv()) return 'insights'
+  return `insights (${ENV})`
 }
 
 function getBundleIdentifier() {
-  if (isProductionEnv()) return 'com.prisma.splitter'
-  return `com.prisma.splitter.${ENV.toLowerCase()}`
+  if (isProductionEnv()) return 'com.prisma.insights'
+  return `com.prisma.insights.${ENV.toLowerCase()}`
 }
 
 export default ({ config }: ConfigContext): ExpoConfig => ({
@@ -21,8 +21,8 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   //
   // App Information
   name: getName(),
-  slug: 'splitter',
-  scheme: 'splitter',
+  slug: 'insights',
+  scheme: 'insights',
   version: '1.0.0',
   owner: 'giu7d',
   //

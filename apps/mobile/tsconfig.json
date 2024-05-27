@@ -1,5 +1,5 @@
 {
-  "extends": ["@splitter/tooling-typescript/base.json"],
+  "extends": ["@insights/tooling-typescript/base.json"],
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {

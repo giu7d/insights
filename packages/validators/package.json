@@ -1,5 +1,5 @@
 {
-  "name": "@splitter/package-validators",
+  "name": "@insights/package-validators",
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -24,12 +24,12 @@
     "zod": "^3.23.4"
   },
   "devDependencies": {
-    "@splitter/tooling-eslint": "workspace:*",
-    "@splitter/tooling-prettier": "workspace:*",
-    "@splitter/tooling-typescript": "workspace:*",
+    "@insights/tooling-eslint": "workspace:*",
+    "@insights/tooling-prettier": "workspace:*",
+    "@insights/tooling-typescript": "workspace:*",
     "eslint": "^9.0.0",
     "prettier": "^3.2.5",
     "typescript": "^5.4.5"
   },
-  "prettier": "@splitter/tooling-prettier"
+  "prettier": "@insights/tooling-prettier"
 }

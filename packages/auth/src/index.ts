@@ -12,7 +12,7 @@ supertokens.init({
     // apiKey: env.SUPERTOKENS_API_KEY TODO: Enable api key
   },
   appInfo: {
-    appName: 'splitter',
+    appName: 'insights',
     apiDomain: env.SUPERTOKENS_API_DOMAIN_URI,
     websiteDomain: env.SUPERTOKENS_WEB_DOMAIN_URI,
     apiBasePath: '/auth',

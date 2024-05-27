@@ -1,4 +1,4 @@
-import config from '@splitter/tooling-eslint/base'
+import config from '@insights/tooling-eslint/base'
 
 /** @type {import('typescript-eslint').Config} */
 export default [

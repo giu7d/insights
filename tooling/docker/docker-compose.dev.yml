@@ -12,12 +12,12 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       PGDATA: /var/lib/postgresql/data/pgdata
-      POSTGRES_MULTIPLE_DATABASES: 'splitter_dev, splitter_auth_dev'
+      POSTGRES_MULTIPLE_DATABASES: 'insights_dev, insights_auth_dev'
     volumes:
       - 'dbdata:/var/lib/postgresql/data/pgdata'
       - './create-multiple-databases.sh:/docker-entrypoint-initdb.d/create-multiple-databases.sh'
     healthcheck:
-      test: ['CMD', 'pg_isready', '-U', 'postgres', '-d', 'splitter_dev']
+      test: ['CMD', 'pg_isready', '-U', 'postgres', '-d', 'insights_dev']
       interval: 5s
       timeout: 5s
       retries: 5
@@ -33,8 +33,8 @@ services:
     ports:
       - 3567:3567
     environment:
-      POSTGRESQL_TABLE_NAMES_PREFIX: splitter_auth
-      POSTGRESQL_CONNECTION_URI: 'postgresql://postgres:postgres@db:5432/splitter_auth_dev'
+      POSTGRESQL_TABLE_NAMES_PREFIX: insights_auth
+      POSTGRESQL_CONNECTION_URI: 'postgresql://postgres:postgres@db:5432/insights_auth_dev'
 
 volumes:
   dbdata:

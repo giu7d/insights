@@ -4,7 +4,7 @@ import {
   CreateUserSchema,
   FindBillsSchema,
   FindUserSchema,
-} from '@splitter/package-validators'
+} from '@insights/package-validators'
 
 import Bills from '@/use-cases/bills'
 import Users from '@/use-cases/users'

@@ -1,8 +1,8 @@
 import esbuild from 'esbuild'
 
-import authPackage from '@splitter/package-auth/package.json' assert { type: 'json' }
-import dbPackage from '@splitter/package-db/package.json' assert { type: 'json' }
-import validatorsPackage from '@splitter/package-validators/package.json' assert { type: 'json' }
+import authPackage from '@insights/package-auth/package.json' assert { type: 'json' }
+import dbPackage from '@insights/package-db/package.json' assert { type: 'json' }
+import validatorsPackage from '@insights/package-validators/package.json' assert { type: 'json' }
 
 import apiPackage from './package.json' assert { type: 'json' }
 
@@ -16,7 +16,7 @@ function getDependencies(pkg) {
 function getExternalDependencies(packages = []) {
   return packages
     .flatMap((pkg) => getDependencies(pkg))
-    .filter((dep) => !dep.startsWith('@splitter'))
+    .filter((dep) => !dep.startsWith('@insights'))
 }
 
 export default esbuild.build({

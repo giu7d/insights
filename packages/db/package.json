@@ -1,5 +1,5 @@
 {
-  "name": "@splitter/package-db",
+  "name": "@insights/package-db",
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -31,9 +31,9 @@
     "zod": "^3.23.4"
   },
   "devDependencies": {
-    "@splitter/tooling-eslint": "workspace:*",
-    "@splitter/tooling-prettier": "workspace:*",
-    "@splitter/tooling-typescript": "workspace:*",
+    "@insights/tooling-eslint": "workspace:*",
+    "@insights/tooling-prettier": "workspace:*",
+    "@insights/tooling-typescript": "workspace:*",
     "@types/pg": "^8.11.6",
     "dotenv-cli": "^7.4.1",
     "drizzle-kit": "^0.20.18",
@@ -42,5 +42,5 @@
     "prettier": "^3.2.5",
     "typescript": "^5.4.5"
   },
-  "prettier": "@splitter/tooling-prettier"
+  "prettier": "@insights/tooling-prettier"
 }

@@ -1,5 +1,5 @@
 {
-  "name": "@splitter/mobile",
+  "name": "@insights/mobile",
   "main": "expo-router/entry",
   "version": "1.0.0",
   "private": true,
@@ -50,11 +50,11 @@
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
-    "@splitter/api": "workspace:*",
-    "@splitter/package-validators": "workspace:*",
-    "@splitter/tooling-eslint": "workspace:*",
-    "@splitter/tooling-prettier": "workspace:*",
-    "@splitter/tooling-typescript": "workspace:*",
+    "@insights/api": "workspace:*",
+    "@insights/package-validators": "workspace:*",
+    "@insights/tooling-eslint": "workspace:*",
+    "@insights/tooling-prettier": "workspace:*",
+    "@insights/tooling-typescript": "workspace:*",
     "@types/jest": "^29.5.12",
     "@types/react": "~18.2.45",
     "@types/react-test-renderer": "^18.0.7",
@@ -69,5 +69,5 @@
   "jest": {
     "preset": "jest-expo"
   },
-  "prettier": "@splitter/tooling-prettier"
+  "prettier": "@insights/tooling-prettier"
 }

@@ -9,6 +9,6 @@ export const connection = new URL(
 export default {
   schema: './src/schema',
   driver: 'pg',
-  tablesFilter: ['splitter_*'],
+  tablesFilter: ['insights_*'],
   dbCredentials: { connectionString: connection.href },
 } satisfies Config

@@ -1,10 +1,9 @@
 import type { CreateFastifyContextOptions } from '@trpc/server/adapters/fastify'
 
+import { authSession } from '@insights/package-auth'
 import { TRPCError, initTRPC } from '@trpc/server'
 import superjson from 'superjson'
 import { ZodError } from 'zod'
-
-import { authSession } from '@splitter/package-auth'
 
 export const createContext = (ctx: CreateFastifyContextOptions) => ctx
 

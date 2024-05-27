@@ -71,7 +71,7 @@ export default tseslint.config(
               group: 'builtin',
             },
             {
-              pattern: '@splitter/**',
+              pattern: '@insights/**',
               group: 'internal',
             },
             {
