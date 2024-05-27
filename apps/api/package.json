@@ -4,6 +4,11 @@
   "main": "build/index.mjs",
   "private": true,
   "type": "module",
+  "exports": {
+    "./router": {
+      "types": "./build/src/web/router.d.ts"
+    }
+  },
   "scripts": {
     "start": "node build/index.mjs",
     "dev": "pnpm with-env run-p dev:*",
@@ -43,6 +48,7 @@
     "@types/jest": "^29.5.12",
     "@types/node": "^18.19.31",
     "@vercel/node": "^2.15.10",
+    "dotenv-cli": "^7.4.1",
     "jest": "^29.7.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^3.2.5",

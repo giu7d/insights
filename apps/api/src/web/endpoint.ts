@@ -12,7 +12,7 @@ import {
   authPlugin,
 } from '@splitter/package-auth'
 
-import { router } from '@/web/router'
+import router from '@/web/router'
 import { createContext } from '@/web/trpc'
 
 const app = fastify({ logger: true })

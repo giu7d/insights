@@ -50,7 +50,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   android: {
     package: getBundleIdentifier(),
     adaptiveIcon: {
-      foregroundImage: './assets/adaptive-icon.png',
+      foregroundImage: './assets/images/adaptive-icon.png',
       backgroundColor: '#ffffff',
     },
   },
@@ -65,7 +65,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   //
   // Environment
   extra: {
-    // ...process.env,
+    ...process.env,
     eas: {
       projectId: '916828f4-940a-42fa-a42d-a662c47baf27',
     },

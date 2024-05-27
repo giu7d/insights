@@ -1,3 +1,5 @@
+import type { inferRouterInputs, inferRouterOutputs } from '@trpc/server'
+
 import {
   CreateUserSchema,
   FindBillsSchema,
@@ -24,6 +26,12 @@ const users = createRouter({
     .mutation(async ({ input }) => await Users.create(input)),
 })
 
-export const router = createRouter({ bills, users })
+const router = createRouter({ bills, users })
+
+export default router
 
 export type Router = typeof router
+
+export type RouterInputs = inferRouterInputs<Router>
+
+export type RouterOutputs = inferRouterOutputs<Router>

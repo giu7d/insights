@@ -84,6 +84,9 @@ importers:
       '@vercel/node':
         specifier: ^2.15.10
         version: 2.15.10
+      dotenv-cli:
+        specifier: ^7.4.1
+        version: 7.4.1
       jest:
         specifier: ^29.7.0
         version: 29.7.0(@types/node@18.19.31)(ts-node@10.9.2(@types/node@18.19.31)(typescript@5.4.5))
@@ -195,6 +198,9 @@ importers:
       superjson:
         specifier: ^2.2.1
         version: 2.2.1
+      zod:
+        specifier: ^3.23.4
+        version: 3.23.4
     devDependencies:
       '@babel/core':
         specifier: ^7.20.0
@@ -223,6 +229,9 @@ importers:
       '@types/react-test-renderer':
         specifier: ^18.0.7
         version: 18.3.0
+      dotenv-cli:
+        specifier: ^7.4.1
+        version: 7.4.1
       jest:
         specifier: ^29.2.1
         version: 29.7.0(@types/node@18.19.31)(ts-node@10.9.2(@types/node@18.19.31)(typescript@5.4.5))
@@ -238,9 +247,6 @@ importers:
       tailwindcss:
         specifier: ^3.4.3
         version: 3.4.3(ts-node@10.9.2(@types/node@18.19.31)(typescript@5.4.5))
-      ts-node:
-        specifier: ^10.9.2
-        version: 10.9.2(@types/node@18.19.31)(typescript@5.4.5)
       typescript:
         specifier: ^5.4.5
         version: 5.4.5

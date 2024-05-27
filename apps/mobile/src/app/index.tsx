@@ -1,6 +1,14 @@
 import { Text, View } from 'react-native'
 
+import { api } from '@/services/api'
+
 export default function Index() {
+  const bills = api.bills.list.useQuery()
+
+  if (bills.error) console.log(bills.error)
+
+  if (bills.isLoading) return <Text>Loading...</Text>
+
   return (
     <View
       style={{

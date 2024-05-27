@@ -1,7 +1,7 @@
 {
   "extends": "@splitter/tooling-typescript/internal-package.json",
   "compilerOptions": {
-    "outDir": "dist",
+    "outDir": "build",
     "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json",
     "baseUrl": ".",
     "paths": {
