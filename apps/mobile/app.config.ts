@@ -7,8 +7,8 @@ function isProductionEnv() {
 }
 
 function getName() {
-  if (isProductionEnv()) return 'insights'
-  return `insights (${ENV})`
+  if (isProductionEnv()) return 'Insights'
+  return `Insights (${ENV})`
 }
 
 function getBundleIdentifier() {
