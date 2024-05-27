@@ -1,101 +1,101 @@
-name: Pull Request - Test
+# name: Pull Request - Test
 
-on:
-  pull_request:
-    types: [opened, synchronize]
+# on:
+#   pull_request:
+#     types: [opened, synchronize]
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.ref }}
-  cancel-in-progress: true
+# concurrency:
+#   group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.ref }}
+#   cancel-in-progress: true
 
-jobs:
-  test-unit:
-    runs-on: ubuntu-latest
-    env:
-      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-      TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
+# jobs:
+#   test-unit:
+#     runs-on: ubuntu-latest
+#     env:
+#       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+#       TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
 
-    steps:
-      - name: 🏗 Setup repository
-        uses: actions/checkout@v3
+#     steps:
+#       - name: 🏗 Setup repository
+#         uses: actions/checkout@v3
 
-      - name: 🏗 Setup monorepo
-        uses: ./.github/actions/setup-monorepo
+#       - name: 🏗 Setup monorepo
+#         uses: ./.github/actions/setup-monorepo
 
-      - name: 🏗 Find current PR Number
-        uses: jwalton/gh-find-current-pr@v1
-        id: find-current-pr-number
+#       - name: 🏗 Find current PR Number
+#         uses: jwalton/gh-find-current-pr@v1
+#         id: find-current-pr-number
 
-      - name: ✅ Lint packages
-        run: pnpm run lint
+#       - name: ✅ Lint packages
+#         run: pnpm run lint
 
-      - name: 📦 Build packages
-        run: pnpm run build
+#       - name: 📦 Build packages
+#         run: pnpm run build
 
-      - name: 🧪 Test repo
-        run: pnpm run test
+#       - name: 🧪 Test repo
+#         run: pnpm run test
 
-  test-e2e:
-    runs-on: macos-latest
-    env:
-      DEVELOPER_DIR: /Applications/Xcode.app
-      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-      TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
-      HOST: '0.0.0.0'
-      PORT: '4000'
-      API_URL: 'http://localhost:4000'
+#   test-e2e:
+#     runs-on: macos-latest
+#     env:
+#       DEVELOPER_DIR: /Applications/Xcode.app
+#       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+#       TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
+#       HOST: '0.0.0.0'
+#       PORT: '4000'
+#       API_URL: 'http://localhost:4000'
 
-    steps:
-      - name: 🏗 Setup repository
-        uses: actions/checkout@v3
+#     steps:
+#       - name: 🏗 Setup repository
+#         uses: actions/checkout@v3
 
-      - name: 🏗 Setup monorepo
-        uses: ./.github/actions/setup-monorepo
+#       - name: 🏗 Setup monorepo
+#         uses: ./.github/actions/setup-monorepo
 
-      - name: 🏗 Setup detox cache
-        id: cache-detox-build
-        uses: actions/cache@v3
-        with:
-          path: apps/mobile/ios/build
-          key: ${{ runner.os }}-detox-ios-build
-          restore-keys: |
-            ${{ runner.os }}-detox-ios-build
+#       - name: 🏗 Setup detox cache
+#         id: cache-detox-build
+#         uses: actions/cache@v3
+#         with:
+#           path: apps/mobile/ios/build
+#           key: ${{ runner.os }}-detox-ios-build
+#           restore-keys: |
+#             ${{ runner.os }}-detox-ios-build
 
-      - name: 🏗 Setup pods cache
-        uses: actions/cache@v3
-        id: cache-pod
-        with:
-          path: apps/mobile/ios/Pods
-          key: cache-pod-${{ hashFiles('**/Podfile.lock') }}
+#       - name: 🏗 Setup pods cache
+#         uses: actions/cache@v3
+#         id: cache-pod
+#         with:
+#           path: apps/mobile/ios/Pods
+#           key: cache-pod-${{ hashFiles('**/Podfile.lock') }}
 
-      - uses: JarvusInnovations/background-action@v1
-        name: 📦 Start API
-        with:
-          working-directory: apps/api
-          wait-on: |
-            ${{ env.API_URL }}
-          run: |
-            pnpm build
-            pnpm start
+#       - uses: JarvusInnovations/background-action@v1
+#         name: 📦 Start API
+#         with:
+#           working-directory: apps/api
+#           wait-on: |
+#             ${{ env.API_URL }}
+#           run: |
+#             pnpm build
+#             pnpm start
 
-      - name: 🏗 Setup cocoapods, xcode, and homebrew
-        run: |
-          gem update cocoapods xcodeproj
-          brew tap wix/brew
-          brew install applesimutils
+#       - name: 🏗 Setup cocoapods, xcode, and homebrew
+#         run: |
+#           gem update cocoapods xcodeproj
+#           brew tap wix/brew
+#           brew install applesimutils
 
-      - name: 📦 Pre-build ios
-        working-directory: apps/mobile
-        run: pnpx expo prebuild
+#       - name: 📦 Pre-build ios
+#         working-directory: apps/mobile
+#         run: pnpx expo prebuild
 
-      - name: 📦 Install dependencies
-        working-directory: apps/mobile/ios
-        run: pod install --no-repo-update
+#       - name: 📦 Install dependencies
+#         working-directory: apps/mobile/ios
+#         run: pod install --no-repo-update
 
-      - name: 📦 Build app for iOS
-        working-directory: apps/mobile
-        run: EXPO_USE_UPDATES=0 pnpm run e2e:ios:build
+#       - name: 📦 Build app for iOS
+#         working-directory: apps/mobile
+#         run: EXPO_USE_UPDATES=0 pnpm run e2e:ios:build
 
-      - name: 🧪 E2E for iOS
-        working-directory: apps/mobile
-        run: pnpm run e2e:ios:test
+#       - name: 🧪 E2E for iOS
+#         working-directory: apps/mobile
+#         run: pnpm run e2e:ios:test

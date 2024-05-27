@@ -1,51 +1,51 @@
-name: Publish - OTA Release
+# name: Publish - OTA Release
 
-on:
-  workflow_dispatch:
-  push:
-    branches:
-      - 'main'
+# on:
+#   workflow_dispatch:
+#   push:
+#     branches:
+#       - 'main'
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.ref }}
-  cancel-in-progress: true
+# concurrency:
+#   group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.ref }}
+#   cancel-in-progress: true
 
-jobs:
-  release-mobile:
-    runs-on: ubuntu-latest
-    env:
-      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-      TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
-    steps:
-      - name: 🏗 Setup repository
-        uses: actions/checkout@v3
+# jobs:
+#   release-mobile:
+#     runs-on: ubuntu-latest
+#     env:
+#       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+#       TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
+#     steps:
+#       - name: 🏗 Setup repository
+#         uses: actions/checkout@v3
 
-      - name: 🏗 Setup monorepo
-        uses: ./.github/actions/setup-monorepo
-        with:
-          expo-token: ${{ secrets.EXPO_TOKEN }}
+#       - name: 🏗 Setup monorepo
+#         uses: ./.github/actions/setup-monorepo
+#         with:
+#           expo-token: ${{ secrets.EXPO_TOKEN }}
 
-      - name: 📦 Build packages for mobile
-        run: pnpm run build:mobile
+#       - name: 📦 Build packages for mobile
+#         run: pnpm run build:mobile
 
-      - name: 🚀 Publish production update for mobile
-        working-directory: apps/mobile
-        run: eas update --non-interactive --channel=production --message=release-${{ github.sha }}
+#       - name: 🚀 Publish production update for mobile
+#         working-directory: apps/mobile
+#         run: eas update --non-interactive --channel=production --message=release-${{ github.sha }}
 
-  # release-api:
-  #   runs-on: ubuntu-latest
-  #   env:
-  #     TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-  #     TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
-  #     RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
-  #   steps:
-  #     - name: 🏗 Setup repository
-  #       uses: actions/checkout@v3
-  #     - name: 🏗 Setup monorepo
-  #       uses: ./.github/actions/setup-monorepo
-  #     - name: 🏗 Setup Railway
-  #       run: pnpm install --global @railway/cli@2.1.0
-  #     - name: 📦 Build packages for api
-  #       run: pnpm run build:api
-  #     - name: 🚀 Publish production update for api
-  #       run: RAILWAY_TOKEN=$RAILWAY_TOKEN railway up
+#   # release-api:
+#   #   runs-on: ubuntu-latest
+#   #   env:
+#   #     TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+#   #     TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
+#   #     RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+#   #   steps:
+#   #     - name: 🏗 Setup repository
+#   #       uses: actions/checkout@v3
+#   #     - name: 🏗 Setup monorepo
+#   #       uses: ./.github/actions/setup-monorepo
+#   #     - name: 🏗 Setup Railway
+#   #       run: pnpm install --global @railway/cli@2.1.0
+#   #     - name: 📦 Build packages for api
+#   #       run: pnpm run build:api
+#   #     - name: 🚀 Publish production update for api
+#   #       run: RAILWAY_TOKEN=$RAILWAY_TOKEN railway up

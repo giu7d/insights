@@ -1,37 +1,37 @@
-name: Pull Request - OTA Preview
+# name: Pull Request - OTA Preview
 
-on:
-  pull_request:
-    types: [opened, synchronize]
+# on:
+#   pull_request:
+#     types: [opened, synchronize]
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.ref }}
-  cancel-in-progress: true
+# concurrency:
+#   group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.ref }}
+#   cancel-in-progress: true
 
-jobs:
-  preview-mobile:
-    runs-on: ubuntu-latest
-    env:
-      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-      TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
-    steps:
-      - name: 🏗 Setup repository
-        uses: actions/checkout@v3
+# jobs:
+#   preview-mobile:
+#     runs-on: ubuntu-latest
+#     env:
+#       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+#       TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
+#     steps:
+#       - name: 🏗 Setup repository
+#         uses: actions/checkout@v3
 
-      - name: 🏗 Setup monorepo
-        uses: ./.github/actions/setup-monorepo
-        with:
-          expo-token: ${{ secrets.EXPO_TOKEN }}
+#       - name: 🏗 Setup monorepo
+#         uses: ./.github/actions/setup-monorepo
+#         with:
+#           expo-token: ${{ secrets.EXPO_TOKEN }}
 
-      - name: 📦 Build packages for mobile
-        run: pnpm run build:mobile
+#       - name: 📦 Build packages for mobile
+#         run: pnpm run build:mobile
 
-      - name: 🚀 Publish update for mobile
-        working-directory: apps/mobile
-        run: eas update --non-interactive --channel=development --message=pr-${{ github.event.number }}
+#       - name: 🚀 Publish update for mobile
+#         working-directory: apps/mobile
+#         run: eas update --non-interactive --channel=development --message=pr-${{ github.event.number }}
 
-      - name: 💬 Comment update for mobile
-        uses: expo/expo-github-action/preview-comment@v7
-        with:
-          project: apps/mobile
-          channel: development
+#       - name: 💬 Comment update for mobile
+#         uses: expo/expo-github-action/preview-comment@v7
+#         with:
+#           project: apps/mobile
+#           channel: development
