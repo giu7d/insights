@@ -4,7 +4,6 @@ import config from '@insights/tooling-eslint/base'
 export default [
   ...config,
   {
-    ignores: ['build/**'],
     rules: {
       '@typescript-eslint/no-unsafe-call': 'off',
       '@typescript-eslint/no-unsafe-assignment': 'off',

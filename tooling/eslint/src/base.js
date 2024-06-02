@@ -7,7 +7,12 @@ import tseslint from 'typescript-eslint'
 export default tseslint.config(
   {
     // Globally ignored files
-    ignores: ['**/*.config.js', '**/*.config.mjs', '**/coverage/**'],
+    ignores: [
+      '**/*.config.js',
+      '**/*.config.mjs',
+      '**/coverage/**',
+      '**/build/**',
+    ],
   },
   {
     linterOptions: { reportUnusedDisableDirectives: true },

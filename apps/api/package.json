@@ -6,10 +6,11 @@
   "type": "module",
   "exports": {
     "./router": {
-      "types": "./build/src/web/router.d.ts"
+      "types": "./build/types/src/web/router.d.ts"
     }
   },
   "scripts": {
+    "preinstall": "tsc",
     "start": "node build/index.mjs",
     "dev": "pnpm with-env run-p dev:*",
     "dev:tsc": "tsc --watch --preserveWatchOutput",

@@ -5,7 +5,12 @@
     "outDir": "build",
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "composite": true,
+    "declaration": true,
+    "declarationDir": "build/types",
+    "emitDeclarationOnly": true,
+    "noEmit": false
   },
   "include": ["src", "config"],
   "exclude": ["node_modules"]

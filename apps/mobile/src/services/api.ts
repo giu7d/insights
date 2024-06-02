@@ -1,7 +1,7 @@
-import type { Router } from '@insights/api/router'
-
 import { createTRPCReact, httpBatchLink, loggerLink } from '@trpc/react-query'
 import superjson from 'superjson'
+
+import type { Router } from '@insights/api/router'
 
 import env, { isProductionEnv } from '@/services/env'
 
