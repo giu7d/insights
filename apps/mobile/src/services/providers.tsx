@@ -4,7 +4,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 import { TRPCProvider, createTRPCClient } from '@/services/api'
 
-interface Props {
+type Props = {
   children: JSX.Element | JSX.Element[]
 }
 

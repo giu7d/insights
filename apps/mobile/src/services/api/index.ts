@@ -6,8 +6,11 @@ import type { Router } from '@insights/api/router'
 import env, { isProductionEnv } from '@/services/env'
 
 const protocol = isProductionEnv(env.ENV) ? 'https' : 'http'
+
 const host = isProductionEnv(env.ENV) ? env.API_HOST : env.DEBUGGER_HOST
+
 const port = env.API_PORT
+
 const pathname = '/trpc'
 
 const TRPC_API_URL = `${protocol}://${host}:${port}${pathname}`
