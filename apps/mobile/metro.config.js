@@ -5,12 +5,14 @@ const { withNativeWind } = require('nativewind/metro')
 
 const path = require('path')
 
-module.exports = withTurboRepoManagedCache(
-  withMonoRepoPaths(
-    withNativeWind(getDefaultConfig(__dirname), {
-      input: './src/styles.css',
-      configPath: './tailwind.config.ts',
-    }),
+module.exports = withJestTest(
+  withTurboRepoManagedCache(
+    withMonoRepoPaths(
+      withNativeWind(getDefaultConfig(__dirname), {
+        input: './src/styles.css',
+        configPath: './tailwind.config.ts',
+      }),
+    ),
   ),
 )
 
@@ -50,6 +52,22 @@ function withMonoRepoPaths(config) {
 function withTurboRepoManagedCache(config) {
   config.cacheStores = [
     new FileStore({ root: path.join(__dirname, 'node_modules/.cache/metro') }),
+  ]
+  return config
+}
+
+/**
+ * Setup Jest to transform TypeScript and JavaScript files.
+ *
+ * @param {import('expo/metro-config').MetroConfig} config
+ * @returns {import('expo/metro-config').MetroConfig}
+ */
+function withJestTest(config) {
+  config.resolver.blockList = [
+    /(.*.spec.ts?)$/,
+    /(.*.spec.tsx?)$/,
+    /(.*.test.ts?)$/,
+    /(.*.test.tsx?)$/,
   ]
   return config
 }

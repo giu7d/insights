@@ -61,7 +61,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   },
   //
   // Plugins
-  plugins: ['expo-router'],
+  plugins: ['expo-router', 'expo-font'],
   //
   // Environment
   extra: {
