@@ -1,8 +1,9 @@
 /// <reference types="./types.d.ts" />
 
 import eslint from '@eslint/js'
-import importPlugin from 'eslint-plugin-import'
 import tseslint from 'typescript-eslint'
+import importPlugin from 'eslint-plugin-import'
+import unusedImportsPlugin from 'eslint-plugin-unused-imports'
 
 export default tseslint.config(
   {
@@ -22,6 +23,7 @@ export default tseslint.config(
     files: ['**/*.js', '**/*.ts', '**/*.tsx'],
     plugins: {
       import: importPlugin,
+      'unused-imports': unusedImportsPlugin,
     },
     extends: [
       eslint.configs.recommended,
@@ -30,7 +32,6 @@ export default tseslint.config(
       ...tseslint.configs.stylisticTypeChecked,
     ],
     rules: {
-      'no-unused-vars': 'error',
       // Typescript Eslint
       '@typescript-eslint/no-unused-vars': 'error',
       '@typescript-eslint/no-unsafe-call': 'off',
@@ -52,6 +53,19 @@ export default tseslint.config(
       ],
       '@typescript-eslint/no-non-null-assertion': 'error',
       '@typescript-eslint/no-unnecessary-condition': 'off',
+      // Unused Imports
+      'no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-vars': 'off',
+      'unused-imports/no-unused-imports': 'error',
+      'unused-imports/no-unused-vars': [
+        'error',
+        {
+          vars: 'all',
+          varsIgnorePattern: '^_',
+          args: 'after-used',
+          argsIgnorePattern: '^_',
+        },
+      ],
       // Group & Sort Imports
       'import/order': [
         'error',
