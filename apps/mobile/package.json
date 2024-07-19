@@ -27,7 +27,8 @@
     "@trpc/client": "^10.45.2",
     "@trpc/react-query": "^10.45.2",
     "@trpc/server": "^10.45.2",
-    "expo": "~51.0.16",
+    "classnames": "^2.5.1",
+    "expo": "~51.0.17",
     "expo-constants": "~16.0.2",
     "expo-font": "~12.0.7",
     "expo-linking": "~6.3.1",
@@ -46,6 +47,7 @@
     "react-native-screens": "3.31.1",
     "react-native-web": "~0.19.10",
     "superjson": "^2.2.1",
+    "ts-pattern": "^5.2.0",
     "zod": "^3.23.4"
   },
   "devDependencies": {
