@@ -4,7 +4,7 @@ import env from '@/env'
 
 const api_url = `${env.ENV === 'development' ? 'http' : 'https'}://${env.API_HOST}:${env.API_PORT}`
 
-function logServerStart() {
+function serverStart() {
   console.log(`
 
 \t░█▀█░█▀█░▀█▀
@@ -23,8 +23,13 @@ function logServerStart() {
 `)
 }
 
-function logServerError(error: string) {
+function serverError(error: string) {
   console.log(colors.bgRed('ERROR:'), error)
 }
 
-export default { logServerStart, logServerError }
+const Log = {
+  serverStart,
+  serverError,
+}
+
+export default Log
