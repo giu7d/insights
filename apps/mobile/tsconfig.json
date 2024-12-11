@@ -17,7 +17,8 @@
     "*.js",
     ".expo/types/**/*.ts",
     "expo-env.d.ts",
-    "eslint.config.mjs"
+    "eslint.config.mjs",
+    "nativewind-env.d.ts"
   ],
   "exclude": ["node_modules"]
 }
