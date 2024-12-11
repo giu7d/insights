@@ -15,7 +15,7 @@
     "lint": "run-s lint:*",
     "lint:workspace": "turbo lint",
     "lint:workspace:dependencies": "pnpm dlx sherif@latest",
-    "clean": "run-s clean:*",
+    "clean": "run-s clean:workspace clean:main",
     "clean:main": "git clean -xdf node_modules",
     "clean:workspace": "turbo clean"
   },

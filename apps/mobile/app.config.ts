@@ -1,31 +1,13 @@
 import type { ConfigContext, ExpoConfig } from 'expo/config'
 
-const { ENV = 'development' } = process.env
-
-function isProductionEnv() {
-  return ENV === 'production'
-}
-
-function getName() {
-  if (isProductionEnv()) return 'Insights'
-  return `Insights (${ENV})`
-}
-
-function getBundleIdentifier() {
-  if (isProductionEnv()) return 'com.prisma.insights'
-  return `com.prisma.insights.${ENV.toLowerCase()}`
-}
-
 export default ({ config }: ConfigContext): ExpoConfig => ({
   ...config,
-  //
   // App Information
   name: getName(),
   slug: 'insights',
   scheme: 'insights',
   version: '1.0.0',
   owner: 'giu7d',
-  //
   // UI & Assets
   orientation: 'portrait',
   userInterfaceStyle: 'automatic',
@@ -36,12 +18,11 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     resizeMode: 'contain',
     backgroundColor: '#ffffff',
   },
-  //
   // Build Params
+  newArchEnabled: true,
   experiments: {
     typedRoutes: true,
   },
-  //
   // Platforms
   ios: {
     bundleIdentifier: getBundleIdentifier(),
@@ -59,10 +40,8 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     output: 'static',
     favicon: './assets/images/favicon.png',
   },
-  //
   // Plugins
-  plugins: ['expo-router', 'expo-font'],
-  //
+  plugins: [],
   // Environment
   extra: {
     ...process.env,
@@ -71,3 +50,19 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     },
   },
 })
+
+const { ENV = 'development' } = process.env
+
+function isProductionEnv() {
+  return ENV === 'production'
+}
+
+function getName() {
+  if (isProductionEnv()) return 'Insights'
+  return `Insights (${ENV})`
+}
+
+function getBundleIdentifier() {
+  if (isProductionEnv()) return 'com.prisma.insights'
+  return `com.prisma.insights.${ENV.toLowerCase()}`
+}
