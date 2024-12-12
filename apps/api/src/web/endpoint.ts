@@ -1,38 +1,34 @@
 import type { FastifyReply, FastifyRequest } from 'fastify'
 
-import compressPlugin from '@fastify/compress'
-import corsPlugin from '@fastify/cors'
-import formDataPlugin from '@fastify/formbody'
-import { fastifyTRPCPlugin } from '@trpc/server/adapters/fastify'
+import withCompressPlugin from '@fastify/compress'
+import withCORSPlugin from '@fastify/cors'
+import withFormDataPlugin from '@fastify/formbody'
+import { fastifyTRPCPlugin as withFastifyTRPCPlugin } from '@trpc/server/adapters/fastify'
 import fastify from 'fastify'
 
-import {
-  authCorsHeaders,
-  authErrorHandler,
-  authPlugin,
-} from '@insights/package-auth'
+import Authentication from '@insights/package-auth'
 
 import router from '@/web/router'
 import { createContext } from '@/web/trpc'
 
 const app = fastify({ logger: true })
 
-void app.register(corsPlugin, {
+void app.register(withCORSPlugin, {
   origin: '*',
-  allowedHeaders: ['Content-Type', ...authCorsHeaders],
+  allowedHeaders: ['Content-Type', ...Authentication.allowedHeaders],
   credentials: true,
 })
 
-void app.register(compressPlugin, {
+void app.register(withCompressPlugin, {
   global: true,
   threshold: 1024,
 })
 
-void app.register(formDataPlugin)
+void app.register(withFormDataPlugin)
 
-void app.register(authPlugin)
+void app.register(Authentication.withAuthenticationPlugin)
 
-void app.register(fastifyTRPCPlugin, {
+void app.register(withFastifyTRPCPlugin, {
   prefix: '/trpc',
   trpcOptions: { router, createContext },
 })
@@ -44,6 +40,6 @@ void app.get('/health', async (_req: FastifyRequest, res: FastifyReply) => {
   })
 })
 
-void app.setErrorHandler(authErrorHandler)
+void app.setErrorHandler(Authentication.withAuthenticationErrorHandler)
 
 export default app

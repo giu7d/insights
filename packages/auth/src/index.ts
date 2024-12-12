@@ -1,3 +1,5 @@
+import { plugin } from 'supertokens-node/framework/fastify/index.js'
+import { errorHandler as withAuthenticationErrorHandler } from 'supertokens-node/framework/fastify/index.js'
 import supertokens from 'supertokens-node/index.js'
 import Dashboard from 'supertokens-node/recipe/dashboard/index.js'
 import Passwordless from 'supertokens-node/recipe/passwordless/index.js'
@@ -9,7 +11,8 @@ supertokens.init({
   framework: 'fastify',
   supertokens: {
     connectionURI: env.SUPERTOKENS_CORE_URI,
-    // apiKey: env.SUPERTOKENS_API_KEY TODO: Enable api key
+    // TODO: Enable api key
+    // apiKey: env.SUPERTOKENS_API_KEY
   },
   appInfo: {
     appName: 'insights',
@@ -28,10 +31,11 @@ supertokens.init({
   ],
 })
 
-export const authCorsHeaders = supertokens.getAllCORSHeaders()
+const allowedHeaders = supertokens.getAllCORSHeaders()
 
-export const authSession = Session
-
-export { plugin as authPlugin } from 'supertokens-node/framework/fastify/index.js'
-
-export { errorHandler as authErrorHandler } from 'supertokens-node/framework/fastify/index.js'
+export default {
+  allowedHeaders,
+  getSession: Session.getSession,
+  withAuthenticationPlugin: plugin,
+  withAuthenticationErrorHandler,
+}

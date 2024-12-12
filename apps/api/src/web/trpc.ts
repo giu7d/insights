@@ -4,7 +4,7 @@ import { TRPCError, initTRPC } from '@trpc/server'
 import superjson from 'superjson'
 import { ZodError } from 'zod'
 
-import { authSession } from '@insights/package-auth'
+import Authentication from '@insights/package-auth'
 
 export const createContext = (ctx: CreateFastifyContextOptions) => ctx
 
@@ -25,7 +25,7 @@ export const usePublicProcedure = t.procedure
 
 export const useAuthenticatedProcedure = t.procedure.use(
   async ({ ctx, next }) => {
-    const session = await authSession.getSession(ctx.req, ctx.res, {
+    const session = await Authentication.getSession(ctx.req, ctx.res, {
       sessionRequired: false,
     })
 
