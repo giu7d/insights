@@ -13,8 +13,7 @@
       "outputs": ["node_modules/.cache/tsbuildinfo.json", "dist/**"]
     },
     "lint": {
-      "dependsOn": ["^build"],
-      "outputs": ["node_modules/.cache/.eslintcache"]
+      "dependsOn": ["^build"]
     },
     "test": {
       "dependsOn": ["build"],

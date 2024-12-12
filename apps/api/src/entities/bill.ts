@@ -1,6 +1,6 @@
 import type { User } from './user'
 
-export interface Bill {
+export type Bill = {
   id: string
   icon: string
   name: string

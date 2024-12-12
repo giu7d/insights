@@ -1,4 +1,4 @@
-export interface Cashback {
+export type Cashback = {
   total: string
   currency: string
 }

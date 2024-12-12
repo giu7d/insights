@@ -1,6 +1,6 @@
 import type { Cashback } from './cashback'
 
-export interface User {
+export type User = {
   id: string
   photo?: string
   firstName: string
