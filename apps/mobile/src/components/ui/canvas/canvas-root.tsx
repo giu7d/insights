@@ -16,7 +16,8 @@ export default function CanvasRoot({ children }: Props) {
         height: '100%',
       }}
     >
-      <Canvas shadows camera={{ position: [0, 0, 7] }}>
+      {/* TODO: Validate: TypeError: Cannot read property 'trim' of undefined */}
+      <Canvas camera={{ position: [0, 0, 7] }}>
         <directionalLight
           intensity={5}
           position={[1, 0, 0]}
