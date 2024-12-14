@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import React from 'react'
 import {
   SafeAreaView,
   StatusBar,
@@ -8,9 +9,8 @@ import {
   View,
 } from 'react-native'
 
-import Button from '@/components/ui/button'
-import Canvas from '@/components/ui/canvas'
-import Carousel from '@/components/ui/carousel'
+import WelcomeCallout from '@/components/components/welcome-callout'
+import WelcomeCarousel from '@/components/components/welcome-carousel'
 import Modal from '@/components/ui/modal'
 
 export default function Index() {
@@ -18,43 +18,11 @@ export default function Index() {
 
   return (
     <>
-      <StatusBar barStyle="dark-content" backgroundColor="white" />
+      <StatusBar />
       <SafeAreaView className="flex flex-1 gap-6 items-center justify-end bg-white">
-        {/* Carrousel */}
-        <Carousel.Root
-          renderPagination={(index, position) => (
-            <Carousel.PaginationItem
-              key={`carousel-pagination-item-${index}`}
-              id={index}
-              progress={position}
-            />
-          )}
-        >
-          <Carousel.Item>
-            <Canvas.Root>
-              <Canvas.Models.BlackAbstractArt />
-            </Canvas.Root>
-          </Carousel.Item>
-          <Carousel.Item>
-            <Text>Slide 2</Text>
-          </Carousel.Item>
-        </Carousel.Root>
-        {/* Hero */}
+        <WelcomeCarousel />
         <View className="flex-col gap-12 px-6 pb-6">
-          {/* Introduction */}
-          <View className="items-center gap-4">
-            <Text className="font-serif text-2xl text-black">
-              Welcome to Insights
-            </Text>
-            <Text className="text-center text-neutral-400">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis
-              lectus auctor, consequat ante eget, varius nisl.
-            </Text>
-          </View>
-          {/* Button */}
-          <Button.Primary onPress={() => setIsModalVisible(true)}>
-            Get started
-          </Button.Primary>
+          <WelcomeCallout onActionButtonPress={() => setIsModalVisible(true)} />
         </View>
       </SafeAreaView>
       {/* Modal */}

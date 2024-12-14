@@ -7,20 +7,22 @@ import Animated, {
   useSharedValue,
 } from 'react-native-reanimated'
 
+import Pagination from '../pagination'
+
 type Props = {
   children: JSX.Element[]
   renderPagination: (
     index: number,
-    position: SharedValue<number>,
+    currentPosition: SharedValue<number>,
   ) => JSX.Element
 }
 
 export default function CarouselRoot({ children, renderPagination }: Props) {
   const layout = useWindowDimensions()
-  const position = useSharedValue(0)
+  const currentPosition = useSharedValue(0)
 
   const handleScroll = useAnimatedScrollHandler((event) => {
-    position.set(event.contentOffset.x / layout.width)
+    currentPosition.set(event.contentOffset.x / layout.width)
   })
 
   return (
@@ -36,13 +38,13 @@ export default function CarouselRoot({ children, renderPagination }: Props) {
         className="flex-1"
         contentContainerClassName="min-w-screen"
         data={children}
-        renderItem={({ item }) => <>{item}</>}
+        renderItem={({ item }) => item}
       />
-      <Animated.View className="flex-row gap-1 justify-center">
+      <Pagination.Root>
         {Array(children.length)
           .fill(undefined)
-          .map((_, index) => renderPagination(index, position))}
-      </Animated.View>
+          .map((_, index) => renderPagination(index, currentPosition))}
+      </Pagination.Root>
     </View>
   )
 }
