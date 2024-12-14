@@ -1,10 +1,10 @@
-import CanvasModelBlackAbstractArt from './canvas-models/canvas-model-block-abstract-art'
 import CanvasRoot from './canvas-root'
+import CanvasSceneAbstractArt from './canvas-scene/canvas-scene-abstract-art'
 
 const Canvas = {
   Root: CanvasRoot,
-  Models: {
-    BlackAbstractArt: CanvasModelBlackAbstractArt,
+  Scene: {
+    AbstractArt: CanvasSceneAbstractArt,
   },
 }
 

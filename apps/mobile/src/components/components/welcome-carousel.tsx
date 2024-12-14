@@ -18,7 +18,7 @@ export default function WelcomeCarousel() {
     >
       <Carousel.Item>
         <Canvas.Root>
-          <Canvas.Models.BlackAbstractArt />
+          <Canvas.Scene.AbstractArt />
         </Canvas.Root>
       </Carousel.Item>
       <Carousel.Item>
