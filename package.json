@@ -27,5 +27,10 @@
     "turbo": "^2.3.3",
     "typescript": "^5.4.5"
   },
-  "prettier": "@insights/tooling-prettier"
+  "prettier": "@insights/tooling-prettier",
+  "pnpm": {
+    "patchedDependencies": {
+      "three": "patches/three.patch"
+    }
+  }
 }

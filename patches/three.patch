@@ -1,0 +1,51 @@
+diff --git a/build/three.cjs b/build/three.cjs
+index 9b30becc0287d0b743bfe596620312312f600cc8..428056c623d6211519a3c09e64c4c6f6db567424 100644
+--- a/build/three.cjs
++++ b/build/three.cjs
+@@ -43417,9 +43417,9 @@ function WebGLProgram( renderer, cacheKey, parameters, bindingStates ) {
+ 		// check for link errors
+ 		if ( renderer.debug.checkShaderErrors ) {
+ 
+-			const programLog = gl.getProgramInfoLog( program ).trim();
+-			const vertexLog = gl.getShaderInfoLog( glVertexShader ).trim();
+-			const fragmentLog = gl.getShaderInfoLog( glFragmentShader ).trim();
++			const programLog = gl.getProgramInfoLog( program )?.trim();
++			const vertexLog = gl.getShaderInfoLog( glVertexShader )?.trim();
++			const fragmentLog = gl.getShaderInfoLog( glFragmentShader )?.trim();
+ 
+ 			let runnable = true;
+ 			let haveDiagnostics = true;
+diff --git a/build/three.module.js b/build/three.module.js
+index 7b7a499ba79e26fa7cb4beaab60f71a4b250be99..aa58d59fd183e711c52fec402d960f2138beaa9e 100644
+--- a/build/three.module.js
++++ b/build/three.module.js
+@@ -6437,9 +6437,9 @@ function WebGLProgram( renderer, cacheKey, parameters, bindingStates ) {
+ 		// check for link errors
+ 		if ( renderer.debug.checkShaderErrors ) {
+ 
+-			const programLog = gl.getProgramInfoLog( program ).trim();
+-			const vertexLog = gl.getShaderInfoLog( glVertexShader ).trim();
+-			const fragmentLog = gl.getShaderInfoLog( glFragmentShader ).trim();
++			const programLog = gl.getProgramInfoLog( program )?.trim();
++			const vertexLog = gl.getShaderInfoLog( glVertexShader )?.trim();
++			const fragmentLog = gl.getShaderInfoLog( glFragmentShader )?.trim();
+ 
+ 			let runnable = true;
+ 			let haveDiagnostics = true;
+diff --git a/src/renderers/webgl/WebGLProgram.js b/src/renderers/webgl/WebGLProgram.js
+index f53af2d422d410761ce29c04a7be1543c7d877b5..b9ecf7ac48a09b1630be651cc80a254cf06f2fbd 100644
+--- a/src/renderers/webgl/WebGLProgram.js
++++ b/src/renderers/webgl/WebGLProgram.js
+@@ -918,9 +918,9 @@ function WebGLProgram( renderer, cacheKey, parameters, bindingStates ) {
+ 		// check for link errors
+ 		if ( renderer.debug.checkShaderErrors ) {
+ 
+-			const programLog = gl.getProgramInfoLog( program ).trim();
+-			const vertexLog = gl.getShaderInfoLog( glVertexShader ).trim();
+-			const fragmentLog = gl.getShaderInfoLog( glFragmentShader ).trim();
++			const programLog = gl.getProgramInfoLog( program )?.trim();
++			const vertexLog = gl.getShaderInfoLog( glVertexShader )?.trim();
++			const fragmentLog = gl.getShaderInfoLog( glFragmentShader )?.trim();
+ 
+ 			let runnable = true;
+ 			let haveDiagnostics = true;
