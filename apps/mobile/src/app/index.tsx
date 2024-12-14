@@ -9,6 +9,7 @@ import {
 } from 'react-native'
 
 import Button from '@/components/ui/button'
+import Canvas from '@/components/ui/canvas'
 import Carousel from '@/components/ui/carousel'
 import Modal from '@/components/ui/modal'
 
@@ -30,13 +31,12 @@ export default function Index() {
           )}
         >
           <Carousel.Item>
-            <BlackAbstractArtVideo />
+            <Canvas.Root>
+              <Canvas.Models.BlackAbstractArt />
+            </Canvas.Root>
           </Carousel.Item>
           <Carousel.Item>
             <Text>Slide 2</Text>
-          </Carousel.Item>
-          <Carousel.Item>
-            <Text>Slide 3</Text>
           </Carousel.Item>
         </Carousel.Root>
         {/* Hero */}
@@ -91,8 +91,4 @@ export default function Index() {
       </Modal.Drawer>
     </>
   )
-}
-
-function BlackAbstractArtVideo() {
-  return <></>
 }

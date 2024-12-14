@@ -5,10 +5,23 @@ const { withNativeWind } = require('nativewind/metro')
 
 const path = require('path')
 
+const config = getDefaultConfig(__dirname)
+
+config.resolver.assetExts = [
+  'png',
+  'jpg',
+  'jpeg',
+  'gif',
+  'webp',
+  'svg',
+  'gltf',
+  'glb',
+]
+
 module.exports = withJestTest(
   withTurboRepoManagedCache(
     withMonoRepoPaths(
-      withNativeWind(getDefaultConfig(__dirname), {
+      withNativeWind(config, {
         input: './src/styles.css',
         configPath: './tailwind.config.ts',
       }),

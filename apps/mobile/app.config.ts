@@ -41,7 +41,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     favicon: './assets/images/favicon.png',
   },
   // Plugins
-  plugins: [],
+  plugins: ['expo-asset'],
   // Environment
   extra: {
     ...process.env,
