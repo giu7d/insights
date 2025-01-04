@@ -9,7 +9,7 @@ type Props = {
 
 export default function CanvasRoot({ children }: Props) {
   return (
-    <View className="flex-1 w-full h-full">
+    <View className="flex-1 w-full h-full" pointerEvents="none">
       <Suspense
         fallback={
           <View className="flex-1 items-center justify-center">
