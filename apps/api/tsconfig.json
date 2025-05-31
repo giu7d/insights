@@ -1,16 +1,11 @@
 {
-  "extends": "@insights/tooling-typescript/base.json",
+  "extends": "@insights/tooling-typescript/internal-package.json",
   "compilerOptions": {
-    "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json",
-    "outDir": "build",
     "paths": {
       "@/*": ["./src/*"]
     },
     "composite": true,
-    "declaration": true,
-    "declarationDir": "build/types",
-    "emitDeclarationOnly": true,
-    "noEmit": false
+    "declarationDir": "${configDir}/build/types"
   },
   "include": ["src", "config"],
   "exclude": ["node_modules"]

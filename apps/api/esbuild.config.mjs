@@ -1,10 +1,10 @@
 import esbuild from 'esbuild'
 
-import authPackage from '@insights/package-auth/package.json' assert { type: 'json' }
-import dbPackage from '@insights/package-db/package.json' assert { type: 'json' }
-import validatorsPackage from '@insights/package-validators/package.json' assert { type: 'json' }
+import authPackage from '@insights/package-auth/package.json' with { type: 'json' }
+import dbPackage from '@insights/package-db/package.json' with { type: 'json' }
+import validatorsPackage from '@insights/package-validators/package.json' with { type: 'json' }
 
-import apiPackage from './package.json' assert { type: 'json' }
+import apiPackage from './package.json' with { type: 'json' }
 
 function getDependencies(pkg) {
   return [

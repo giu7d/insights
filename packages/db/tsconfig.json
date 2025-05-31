@@ -1,8 +1,6 @@
 {
   "extends": "@insights/tooling-typescript/internal-package.json",
   "compilerOptions": {
-    "outDir": "build",
-    "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json",
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
