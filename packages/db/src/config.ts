@@ -8,7 +8,8 @@ export const connection = new URL(
 
 export default {
   schema: './src/schema',
-  driver: 'pg',
+  dialect: 'postgresql',
   tablesFilter: ['insights_*'],
-  dbCredentials: { connectionString: connection.href },
+  casing: 'snake_case',
+  dbCredentials: { url: connection.href },
 } satisfies Config
