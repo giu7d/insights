@@ -1,12 +1,8 @@
 import { z } from 'zod'
 
-export const CreateUserSchema = z.object({
-  photo: z.string().optional(),
-  firstName: z.string(),
-  lastName: z.string(),
-  username: z.string(),
-})
-
-export const FindUserSchema = z.object({ id: z.string() })
-
-export const FindBillsSchema = z.object({ id: z.string() })
+export const unused = z.string().describe(
+  `This lib is currently not used as we use drizzle-zod for simple schemas
+   But as your application grows and you need other validators to share
+   with back and frontend, you can put them in here
+  `,
+)
