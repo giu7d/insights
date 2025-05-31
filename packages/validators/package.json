@@ -27,7 +27,7 @@
     "@insights/tooling-eslint": "workspace:*",
     "@insights/tooling-prettier": "workspace:*",
     "@insights/tooling-typescript": "workspace:*",
-    "eslint": "^9.0.0",
+    "eslint": "catalog:",
     "prettier": "catalog:",
     "typescript": "catalog:"
   },

@@ -1,0 +1,5 @@
+{
+  "extends": "@insights/tooling-typescript/base.json",
+  "include": ["."],
+  "exclude": ["node_modules"]
+}

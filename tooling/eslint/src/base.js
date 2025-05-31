@@ -1,39 +1,67 @@
-/// <reference types="./types.d.ts" />
+import path from 'node:path'
 
+import { includeIgnoreFile } from '@eslint/compat'
 import eslint from '@eslint/js'
-import tseslint from 'typescript-eslint'
 import importPlugin from 'eslint-plugin-import'
+import tsEslint from 'typescript-eslint'
+import turboPlugin from 'eslint-plugin-turbo'
 import unusedImportsPlugin from 'eslint-plugin-unused-imports'
 
-export default tseslint.config(
+// @ts-ignore
+const workspacePath = path.resolve(import.meta.dirname, '../../../')
+const workspaceGitIgnorePath = path.join(workspacePath, '.gitignore')
+
+/**
+ * All packages should use this rule
+ */
+export const restrictEnvAccess = tsEslint.config(
+  { ignores: ['**/env.ts'] },
   {
-    // Globally ignored files
-    ignores: [
-      '**/*.config.js',
-      '**/*.config.mjs',
-      '**/coverage/**',
-      '**/build/**',
-    ],
+    files: ['**/*.js', '**/*.ts', '**/*.tsx'],
+    rules: {
+      'no-restricted-properties': [
+        'error',
+        {
+          object: 'process',
+          property: 'env',
+          message:
+            "Use `import { env } from '@/env'` instead to ensure validated types.",
+        },
+      ],
+      'no-restricted-imports': [
+        'error',
+        {
+          name: 'process',
+          importNames: ['env'],
+          message:
+            "Use `import { env } from '@/env'` instead to ensure validated types.",
+        },
+      ],
+    },
   },
+)
+
+export default tsEslint.config(
+  // Ignore files not tracked by VCS and any config files
+  includeIgnoreFile(workspaceGitIgnorePath),
   {
-    linterOptions: { reportUnusedDisableDirectives: true },
-    languageOptions: { parserOptions: { project: true } },
+    ignores: ['**/*.config.*', '**/*.config.*'],
   },
   {
     files: ['**/*.js', '**/*.ts', '**/*.tsx'],
     plugins: {
       import: importPlugin,
+      turbo: turboPlugin,
       'unused-imports': unusedImportsPlugin,
     },
     extends: [
       eslint.configs.recommended,
-      ...tseslint.configs.recommended,
-      ...tseslint.configs.recommendedTypeChecked,
-      ...tseslint.configs.stylisticTypeChecked,
+      ...tsEslint.configs.recommended,
+      ...tsEslint.configs.recommendedTypeChecked,
+      ...tsEslint.configs.stylisticTypeChecked,
     ],
     rules: {
-      // Typescript Eslint
-      '@typescript-eslint/no-unused-vars': 'error',
+      ...turboPlugin.configs.recommended.rules,
       '@typescript-eslint/no-unsafe-call': 'off',
       '@typescript-eslint/no-unsafe-return': 'off',
       '@typescript-eslint/no-empty-function': 'off',
@@ -53,8 +81,7 @@ export default tseslint.config(
         },
       ],
       '@typescript-eslint/no-non-null-assertion': 'error',
-      '@typescript-eslint/no-unnecessary-condition': 'off',
-      // Unused Imports
+      // Unused Params, Vars & Imports
       'no-unused-vars': 'off',
       '@typescript-eslint/no-unused-vars': 'off',
       'unused-imports/no-unused-imports': 'error',
@@ -68,6 +95,7 @@ export default tseslint.config(
         },
       ],
       // Group & Sort Imports
+      'import/consistent-type-specifier-style': ['error', 'prefer-top-level'],
       'import/order': [
         'error',
         {
@@ -76,9 +104,14 @@ export default tseslint.config(
             'builtin',
             'external',
             'internal',
+            'unknown',
             ['parent', 'sibling', 'index'],
           ],
           pathGroups: [
+            {
+              pattern: 'node:',
+              group: 'builtin',
+            },
             {
               pattern: 'react',
               group: 'builtin',
@@ -97,7 +130,7 @@ export default tseslint.config(
             },
             {
               pattern: '@/**',
-              group: 'parent',
+              group: 'unknown',
             },
           ],
           'newlines-between': 'always',
@@ -108,13 +141,10 @@ export default tseslint.config(
           },
         },
       ],
-      'sort-imports': [
-        'error',
-        {
-          ignoreDeclarationSort: true, // handled by import/order
-          ignoreMemberSort: false,
-        },
-      ],
     },
+  },
+  {
+    linterOptions: { reportUnusedDisableDirectives: true },
+    languageOptions: { parserOptions: { projectService: true } },
   },
 )
