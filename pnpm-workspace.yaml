@@ -12,8 +12,6 @@ catalog:
   'ts-jest': ^29.3.4
   '@types/jest': ^29.5.14
 
-  # Authentication
-
   # Tanstack & tRPC
   '@tanstack/react-query': ^5.69.0
   '@trpc/client': ^11.1.0

@@ -1,5 +1,3 @@
-version: '3'
-
 services:
   db:
     image: postgres:16.2-alpine
@@ -26,7 +24,7 @@ services:
     depends_on:
       db:
         condition: service_healthy
-    image: registry.supertokens.io/supertokens/supertokens-postgresql:9.0.2
+    image: registry.supertokens.io/supertokens/supertokens-postgresql:11.0.2
     restart: unless-stopped
     networks:
       - app_network

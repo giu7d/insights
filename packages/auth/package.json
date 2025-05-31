@@ -19,7 +19,7 @@
     "lint:prettier": "prettier --check . --ignore-path ../../.gitignore"
   },
   "dependencies": {
-    "supertokens-node": "^17.0.7"
+    "supertokens-node": "^22.1.0"
   },
   "devDependencies": {
     "@insights/tooling-eslint": "workspace:*",
