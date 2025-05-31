@@ -1,4 +1,6 @@
-/** @type {import('ts-jest').JestConfigWithTsJest} */
+/** @typedef {import('ts-jest').JestConfigWithTsJest} JestConfig */
+
+/** @type {JestConfig} */
 const config = {
   roots: ['<rootDir>/src'],
   moduleNameMapper: {

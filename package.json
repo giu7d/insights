@@ -15,14 +15,14 @@
     "db:studio": "pnpm -F package-db db:studio",
     "lint": "run-s lint:*",
     "lint:workspace": "turbo lint",
-    "lint:workspace:dependencies": "pnpm dlx sherif@latest",
+    "lint:workspace:deps": "pnpm dlx sherif@latest",
     "clean": "run-s clean:workspace clean:main",
     "clean:main": "git clean -xdf node_modules",
     "clean:workspace": "turbo clean"
   },
   "devDependencies": {
     "@insights/tooling-prettier": "workspace:*",
-    "dotenv-cli": "^6.0.0",
+    "dotenv-cli": "catalog:",
     "npm-run-all": "catalog:",
     "prettier": "catalog:",
     "turbo": "^2.5.4",

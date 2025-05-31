@@ -12,10 +12,15 @@
     "lint:eslint": "eslint",
     "lint:prettier": "prettier --check . --ignore-path ../../.gitignore"
   },
+  "dependencies": {
+    "jest": "catalog:",
+    "ts-jest": "catalog:"
+  },
   "devDependencies": {
     "@insights/tooling-eslint": "workspace:*",
     "@insights/tooling-prettier": "workspace:*",
     "@insights/tooling-typescript": "workspace:*",
+    "@types/jest": "catalog:",
     "eslint": "catalog:",
     "npm-run-all": "catalog:",
     "prettier": "catalog:"
