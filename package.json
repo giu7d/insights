@@ -2,9 +2,9 @@
   "name": "insights",
   "version": "1.0.0",
   "private": true,
-  "packageManager": "pnpm@9.0.4",
   "engines": {
-    "node": ">=20.0.0"
+    "node": ">=20.0.0",
+    "pnpm": ">=9.6.0"
   },
   "scripts": {
     "dev": "turbo dev --parallel",
@@ -22,8 +22,8 @@
   "devDependencies": {
     "@insights/tooling-prettier": "workspace:*",
     "dotenv-cli": "^6.0.0",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^3.2.5",
+    "npm-run-all": "catalog:",
+    "prettier": "catalog:",
     "turbo": "^2.3.3",
     "typescript": "^5.4.5"
   },
