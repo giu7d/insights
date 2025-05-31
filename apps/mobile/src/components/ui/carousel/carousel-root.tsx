@@ -26,17 +26,17 @@ export default function CarouselRoot({ children, renderPagination }: Props) {
   })
 
   return (
-    <View className="gap-4 flex-1 items-center justify-end">
+    <View className='flex-1 items-center justify-end gap-4'>
       <Animated.FlatList
         horizontal
         onScroll={handleScroll}
         scrollEventThrottle={16}
         decelerationRate={0.9}
-        snapToAlignment="center"
+        snapToAlignment='center'
         snapToInterval={layout.width}
         showsHorizontalScrollIndicator={false}
-        className="flex-1"
-        contentContainerClassName="min-w-screen"
+        className='flex-1'
+        contentContainerClassName='min-w-screen'
         data={children}
         renderItem={({ item }) => item}
       />

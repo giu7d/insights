@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/react-compiler */
 import type { THREE } from 'expo-three'
 
 import type { RefObject } from 'react'

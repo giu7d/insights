@@ -32,7 +32,7 @@ export default function PaginationItem({ id, currentPosition }: Props) {
 
   return (
     <Animated.View
-      className="w-2 h-2 rounded-full bg-black"
+      className='h-2 w-2 rounded-full bg-black'
       style={animatedStyle}
     />
   )

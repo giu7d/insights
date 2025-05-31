@@ -11,10 +11,10 @@ export default function CarouselItem({ children, className, ...props }: Props) {
   const layout = useWindowDimensions()
 
   return (
-    <View style={{ width: layout.width }} className="items-center align-center">
+    <View style={{ width: layout.width }} className='align-center items-center'>
       <View
         className={cn(
-          'w-[90%] h-full',
+          'h-full w-[90%]',
           'items-center justify-center',
           className,
         )}

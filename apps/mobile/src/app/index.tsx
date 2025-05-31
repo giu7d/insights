@@ -18,9 +18,9 @@ export default function Index() {
   return (
     <>
       <StatusBar />
-      <SafeAreaView className="flex flex-1 gap-6 items-center justify-end bg-white">
+      <SafeAreaView className='flex flex-1 items-center justify-end gap-6 bg-white'>
         <WelcomeCarousel />
-        <View className="flex-col gap-12 px-6 pb-6">
+        <View className='flex-col gap-12 px-6 pb-6'>
           <WelcomeCallout onActionButtonPress={() => setIsModalVisible(true)} />
         </View>
       </SafeAreaView>
@@ -29,28 +29,28 @@ export default function Index() {
         isVisible={isModalVisible}
         onClose={() => setIsModalVisible(false)}
       >
-        <View className="flex-row w-full">
-          <View className="flex-col">
-            <Text className="text-base text-neutral-400">
+        <View className='w-full flex-row'>
+          <View className='flex-col'>
+            <Text className='text-base text-neutral-400'>
               Verify your identity
             </Text>
-            <Text className="font-semibold text-xl text-black">
+            <Text className='text-xl font-semibold text-black'>
               What's your email
             </Text>
           </View>
         </View>
         <View>
           <TextInput
-            placeholder="Type your email here"
-            className="w-full h-14 p-4 border-b border-neutral-200 placeholder:text-neutral-400 focus:border-black"
+            placeholder='Type your email here'
+            className='h-14 w-full border-b border-neutral-200 p-4 placeholder:text-neutral-400 focus:border-black'
           />
         </View>
-        <View className="flex-row justify-end">
+        <View className='flex-row justify-end'>
           <TouchableOpacity
             onPress={() => setIsModalVisible(false)}
-            className="h-12 px-12 items-center justify-center bg-black rounded-lg disabled:opacity-25"
+            className='h-12 items-center justify-center rounded-lg bg-black px-12 disabled:opacity-25'
           >
-            <Text className="font-semibold text-sm text-white capitalize">
+            <Text className='text-sm font-semibold capitalize text-white'>
               Next
             </Text>
           </TouchableOpacity>

@@ -1,5 +1,7 @@
+import type { RefObject } from 'react'
+import { useLayoutEffect } from 'react'
+
 import { THREE } from 'expo-three'
-import { RefObject, useLayoutEffect } from 'react'
 
 export default function useMaterial(
   ref: RefObject<THREE.Group<THREE.Object3DEventMap>>,

@@ -6,7 +6,7 @@ type Props = {
 
 export default function PaginationRoot({ children }: Props) {
   return (
-    <Animated.View className="flex-row gap-1 justify-center">
+    <Animated.View className='flex-row justify-center gap-1'>
       {children}
     </Animated.View>
   )

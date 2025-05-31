@@ -9,10 +9,10 @@ type Props = {
 
 export default function CanvasRoot({ children }: Props) {
   return (
-    <View className="flex-1 w-full h-full" pointerEvents="none">
+    <View className='h-full w-full flex-1' pointerEvents='none'>
       <Suspense
         fallback={
-          <View className="flex-1 items-center justify-center">
+          <View className='flex-1 items-center justify-center'>
             <ActivityIndicator />
           </View>
         }

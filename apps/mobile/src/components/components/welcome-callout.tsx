@@ -12,11 +12,11 @@ export default function WelcomeCallout({
 }: Props) {
   return (
     <>
-      <View className="items-center gap-4">
-        <Text className="font-serif text-2xl text-black">
+      <View className='items-center gap-4'>
+        <Text className='font-serif text-2xl text-black'>
           Welcome to Insights
         </Text>
-        <Text className="text-center text-neutral-400">
+        <Text className='text-center text-neutral-400'>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis
           lectus auctor, consequat ante eget, varius nisl.
         </Text>

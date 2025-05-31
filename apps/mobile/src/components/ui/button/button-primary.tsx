@@ -18,7 +18,7 @@ export function ButtonPrimary({
   return (
     <TouchableOpacity
       className={cn(
-        'min-w-full h-14 p-4 items-center justify-center bg-black rounded-lg',
+        'h-14 min-w-full items-center justify-center rounded-lg bg-black p-4',
         'disabled:opacity-25',
         className,
       )}
@@ -26,7 +26,7 @@ export function ButtonPrimary({
     >
       <Text
         className={cn(
-          'font-semibold text-base text-white capitalize',
+          'text-base font-semibold capitalize text-white',
           textClassName,
         )}
       >

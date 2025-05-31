@@ -1,5 +1,6 @@
 import React from 'react'
-import { KeyboardAvoidingView, View, type ViewProps } from 'react-native'
+import { KeyboardAvoidingView, View } from 'react-native'
+import type { ViewProps } from 'react-native'
 
 import cn from 'classnames'
 
@@ -18,7 +19,7 @@ function ModalDrawerBackdrop({ className, ...props }: ViewProps) {
     <View
       {...props}
       className={cn(
-        'absolute flex w-full h-full z-10 bg-[rgba(0,0,0,0.4)]',
+        'absolute z-10 flex h-full w-full bg-[rgba(0,0,0,0.4)]',
         className,
       )}
     />
@@ -28,12 +29,12 @@ function ModalDrawerBackdrop({ className, ...props }: ViewProps) {
 function ModalDrawerContainer({ children }: ModalDrawerContainerProps) {
   return (
     <KeyboardAvoidingView
-      behavior="position"
-      className="absolute flex w-full z-50 bottom-0 right-0 left-0"
+      behavior='position'
+      className='absolute bottom-0 left-0 right-0 z-50 flex w-full'
     >
-      <View className="flex flex-col w-fit m-4 mb-6 bg-white rounded-3xl">
-        <View className="h-1 w-24 mt-4 bg-neutral-300 rounded-full self-center" />
-        <View className="flex flex-col gap-12 p-6">{children}</View>
+      <View className='m-4 mb-6 flex w-fit flex-col rounded-3xl bg-white'>
+        <View className='mt-4 h-1 w-24 self-center rounded-full bg-neutral-300' />
+        <View className='flex flex-col gap-12 p-6'>{children}</View>
       </View>
     </KeyboardAvoidingView>
   )
